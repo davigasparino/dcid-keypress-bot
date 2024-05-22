@@ -24,13 +24,25 @@ btn_styles = {
 
 profiles = [
     {
-        "name": "primeiro Profile",
-        "keys": ["w", "d", "s", "a"],
+        "title": "primeiro Profile",
+        "name": "p_0",
+        "keys": [
+            {"Tecla": "w", "Tempo": 12},
+            {"Tecla": "d", "Tempo": 9},
+            {"Tecla": "s", "Tempo": 7},
+            {"Tecla": "a", "Tempo": 5}
+        ],
         "press": 8
     },
     {
-        "name": "segundo Profile",
-        "keys": ["space", "q", "2", "5"],
+        "title": "segundo Profile",
+        "name": "p_1",
+        "keys": [
+            {"Tecla": "space", "Tempo": 5},
+            {"Tecla": "q", "Tempo": 2},
+            {"Tecla": "2", "Tempo": 4},
+            {"Tecla": "5", "Tempo": 6}
+        ],
         "press": 18
     }
 ]
@@ -58,6 +70,12 @@ def enviar_dados_configuracoes(texto_entrada):
     :param texto_entrada: Texto digitado no campo de entrada.
     """
     print(f"Dados de configuração enviados: {texto_entrada}")
+
+def profileSaveConfigs(values):
+    print(values)
+
+    for v in values:
+        print(f"Items: {v['entry'].get()} \n Objeto inteiro: {v}")
     # Insira aqui o código para realmente enviar os dados (ex: para um servidor, arquivo, etc.)
 
 
@@ -66,6 +84,65 @@ def abrir_configuracoes():
     Exibe o campo de entrada de texto para configurações.
     """
     exibir_campo_configuracoes()
+
+def createDynamicFields(frame, title, name):
+    # Create the title label
+        title_label = tk.Label(frame, text=f"{title}")
+        title_label.pack()
+
+        # Create the entry field and store it in the dictionary
+        entry = tk.Entry(frame)
+
+        # Prepopulate the entry field with the value
+        entry.insert(0, name)
+
+        # Pack the entry field
+        entry.pack(pady=10)
+        # Cria o campo de entrada de texto
+
+        return entry
+
+def profileEdit():
+    conteudo_label = tk.Label(FrameContainerContent, text="Perfis", font=("Arial", 20), width=450)
+    conteudo_label.pack(pady=20)
+
+    values = []
+    i = 0
+    for p in profiles:
+
+        entry = createDynamicFields(FrameContainerContent, p['title'], p['name'])
+        values.append(p)
+        values[i]['entry'] = entry
+
+        table_frame = tk.Frame(FrameContainerContent)
+        table_frame.pack()
+        
+        for row_num, row_data in enumerate(p['keys']):
+            for col_num, (col_name, col_value) in enumerate(row_data.items()):
+                row_label = tk.Label(table_frame, text="")
+                row_label.grid(row=row_num + 1, column=col_num, sticky="nsew")
+
+                row_label = createDynamicFields(row_label, col_name, col_value)
+                print("col_value", col_value)
+                print(" - - - - - - - - - - - - ")
+
+        # for k in p['keys']:
+        #     entry = createDynamicFields(FrameContainerContent, 'Tecla', k[0])
+        #     entry = createDynamicFields(FrameContainerContent, 'Tempo', k[1])
+
+        i += 1
+
+    print(values)
+    
+    # Cria um botão para enviar os dados do campo de texto
+    botao_enviar = tk.Button(FrameContainerContent, text="Salvar", command=lambda: profileSaveConfigs(values))
+    botao_enviar.pack(pady=10)
+
+def OpenProfileEdit():
+    """
+    Exibe o campo de entrada de texto para configurações.
+    """
+    profileEdit()
 
 def atualizar_texto_conteudo(texto):
     """
@@ -98,6 +175,10 @@ def atualizar_conteudo(tipo_conteudo):
         atualizar_texto_conteudo("Olá, você está na Home!")
     elif tipo_conteudo == "configuracoes":
         abrir_configuracoes()
+    elif tipo_conteudo == "EditPerfil":
+        OpenProfileEdit()
+    elif tipo_conteudo == "EditPerfil":
+        OpenProfileEdit()
 
 
 # Criando a janela principal
@@ -119,6 +200,9 @@ link_home.pack(side="left", padx=20, pady=10)
 
 link_configuracoes = tk.Button(FrameNavbar, text="Configurações", command=lambda: atualizar_conteudo("configuracoes"))
 link_configuracoes.pack(side="left", padx=20, pady=10)
+
+link_config_perfis = tk.Button(FrameNavbar, text="Perfis", command=lambda: atualizar_conteudo("EditPerfil"))
+link_config_perfis.pack(side="left", padx=20, pady=10)
 
 # Criando o retângulo inferior para o conteúdo (FrameContainerContent)
 FrameContainer = tk.Frame(frame_total, width=650, height=450, background="gray")
