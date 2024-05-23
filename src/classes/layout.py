@@ -1,140 +1,50 @@
 import tkinter as tk
-configs_container = {
-    "width": 500, 
-    "height": 450, 
-    "background": "#f5f5f5"
-}
-configs_sidebar = {
-    "width": 150, 
-    "height": 450, 
-    "background": "#d5d5d5"
-}
-configs_navbar = {
-    "width": 650, 
-    "height": 50, 
-    "background": "#b2b2b2"
-}
-btn_styles = {
-    "foreground": "blue", 
-    "background": "white",
-    "activebackground": "blue",
-    "activeforeground": "yellow",
-    "borderwidth": 0
-}
 
-profiles = [
-    {
-        "name": "primeiro Profile",
-        "keys": ["w", "d", "s", "a"],
-        "press": 8
-    },
-    {
-        "name": "segundo Profile",
-        "keys": ["space", "q", "2", "5"],
-        "press": 18
-    }
-]
-
-def exibir_campo_configuracoes():
+class Layout:
     """
-    Exibe o campo de entrada de texto para configurações.
+    KeyBoard Classe
     """
-    print(profiles[0])
-    conteudo_label = tk.Label(FrameContainerContent, text="Configurações", font=("Arial", 20), width=450)
-    conteudo_label.pack(pady=20)
+    def Window(title, size):
+        janela = tk.Tk()
+        janela.title(title)
+        janela.geometry(size)
     
-    # Cria o campo de entrada de texto
-    campo_configuracoes = tk.Entry(FrameContainerContent)
-    campo_configuracoes.pack(pady=20)
+        return janela
 
-    # Cria um botão para enviar os dados do campo de texto
-    botao_enviar = tk.Button(FrameContainerContent, text="Enviar", command=lambda: enviar_dados_configuracoes(campo_configuracoes.get()))
-    botao_enviar.pack(pady=10)
+    def Div(parent, attr, position):
+        div = tk.Frame(parent, attr)
+        div.pack(side=position, fill="x")
+        return div
 
-def enviar_dados_configuracoes(texto_entrada):
-    """
-    Função para enviar os dados do campo de entrada de texto.
+    def ClearDiv(frame):
+        for widget in frame.winfo_children():
+            widget.destroy()
+            return frame
 
-    :param texto_entrada: Texto digitado no campo de entrada.
-    """
-    print(f"Dados de configuração enviados: {texto_entrada}")
-    # Insira aqui o código para realmente enviar os dados (ex: para um servidor, arquivo, etc.)
+    def Router( frame, route):
+        for widget in frame.winfo_children():
+            widget.destroy()
+        # Carrega o novo conteúdo de acordo com o tipo_conteudo
+        if route == "home":
+            conteudo_label = tk.Label(frame, text="Configurações", font=("Arial", 20), width=450)
+            conteudo_label.pack(pady=20)
+        elif route == "EditPerfil":
+            print("Estamos editando um perfil")
 
-
-def abrir_configuracoes():
-    """
-    Exibe o campo de entrada de texto para configurações.
-    """
-    exibir_campo_configuracoes()
-
-def atualizar_texto_conteudo(texto):
-    """
-    Cria ou atualiza a label com o texto especificado dentro do FrameContainerContent.
-
-    :param texto: Texto a ser exibido na label.
-    """
-    conteudo_label = ''
-
-    if not conteudo_label:
-        conteudo_label = tk.Label(FrameContainerContent, configs_container, text=texto, font=("Arial", 16))
+    def atualizar_conteudo(frame, content, sizeW):
+        for widget in frame.winfo_children():
+            widget.destroy()
+        
+        conteudo_label = tk.Label(frame, text=content['title'], font=("Arial", 20), width=sizeW)
         conteudo_label.pack(pady=20)
-    else:
-        conteudo_label.config(text=texto)
 
-
-# Função para atualizar o conteúdo
-def atualizar_conteudo(tipo_conteudo):
-    """
-    Atualiza o conteúdo do FrameContainerContent de acordo com o tipo_conteudo.
-
-    :param tipo_conteudo: Tipo de conteúdo a ser exibido ("home" ou "configuracoes").
-    """
-    # Limpa o conteúdo atual do FrameContainerContent
-    for widget in FrameContainerContent.winfo_children():
-        widget.destroy()
-
-    # Carrega o novo conteúdo de acordo com o tipo_conteudo
-    if tipo_conteudo == "home":
-        atualizar_texto_conteudo("Olá, você está na Home!")
-    elif tipo_conteudo == "configuracoes":
-        abrir_configuracoes()
-
-
-# Criando a janela principal
-janela = tk.Tk()
-janela.title("Minha Interface")
-janela.geometry("650x500")
-
-# Criando o quadrado principal (frame_total)
-frame_total = tk.Frame(janela, width=650, height=500, background="red")
-frame_total.pack()
-
-# Criando o retângulo superior para os botões (FrameNavbar)
-FrameNavbar = tk.Frame(frame_total, configs_navbar)
-FrameNavbar.pack(side="top", fill="x")
-
-# Criando os botões dentro do FrameNavbar
-link_home = tk.Button(FrameNavbar, text="Home", command=lambda: atualizar_conteudo("home"))
-link_home.pack(side="left", padx=20, pady=10)
-
-link_configuracoes = tk.Button(FrameNavbar, text="Configurações", command=lambda: atualizar_conteudo("configuracoes"))
-link_configuracoes.pack(side="left", padx=20, pady=10)
-
-# Criando o retângulo inferior para o conteúdo (FrameContainerContent)
-FrameContainer = tk.Frame(frame_total, width=650, height=450, background="gray")
-FrameContainer.pack(side="bottom", fill="both", expand=True)
-
-FrameContainerSidebar = tk.Frame(FrameContainer, configs_sidebar)
-FrameContainerSidebar.pack(side="left", fill="both", expand=True)
-
-FrameContainerContent = tk.Frame(FrameContainer, configs_container)
-FrameContainerContent.pack(side="right", fill="both", expand=True)
-
-
-
-# Conteúdo inicial (pode ser um texto de placeholder)
-#inicial = tk.Label(FrameContainerContent, text="Conteúdo Inicial", font=("Arial", 16))
-#inicial.pack(pady=20)
-
-# Executando a interface
-janela.mainloop()
+    def Links(self, navFrame, targetFrame, sizeW, args):
+        link_home = []
+        for n, l in enumerate(args):
+            print(n, l)
+            link_home.append(tk.Button(
+                navFrame, 
+                text=l['title'], 
+                command=lambda content=l, self=self: self.atualizar_conteudo(targetFrame, content, sizeW)
+            ))
+            link_home[n].pack(side="top", padx=20, pady=10)
