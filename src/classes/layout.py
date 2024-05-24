@@ -11,7 +11,7 @@ class Layout:
     
         return janela
 
-    def Div(parent, attr, position):
+    def Div(parent, attr={}, position='left'):
         div = tk.Frame(parent, attr)
         div.pack(side=position, fill="x")
         return div
@@ -38,13 +38,14 @@ class Layout:
         conteudo_label = tk.Label(frame, text=content['title'], font=("Arial", 20), width=sizeW)
         conteudo_label.pack(pady=20)
 
-    def Links(self, navFrame, targetFrame, sizeW, args):
+    def Links(self, args):
+        print()
         link_home = []
-        for n, l in enumerate(args):
+        for n, l in enumerate(args['links']):
             print(n, l)
             link_home.append(tk.Button(
-                navFrame, 
+                args['side_in'], 
                 text=l['title'], 
-                command=lambda content=l, self=self: self.atualizar_conteudo(targetFrame, content, sizeW)
+                command=lambda content=l, self=self: self.atualizar_conteudo(args['side_out'], content, args['sizeW'])
             ))
-            link_home[n].pack(side="top", padx=20, pady=10)
+            link_home[n].pack(side="left", padx=20, pady=10)
