@@ -1,0 +1,17 @@
+[
+    {
+        "key": "w",
+        "pressed": 20,
+        "random": false
+    },
+    {
+        "key": "s",
+        "pressed": 30,
+        "random": false
+    },
+    {
+        "key": "d",
+        "pressed": 5,
+        "random": "true"
+    }
+]

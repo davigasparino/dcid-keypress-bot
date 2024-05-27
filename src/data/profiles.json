@@ -1,0 +1,50 @@
+[
+    {
+        "title": "Primeiro BOT",
+        "timer_default": "40",
+        "keys": [
+            {
+                "key": "a",
+                "pressed": "12",
+                "random": false,
+                "min": "",
+                "max": ""
+            },
+            {
+                "key": "s",
+                "pressed": "23",
+                "random": false,
+                "min": "",
+                "max": ""
+            },
+            {
+                "key": "d",
+                "pressed": "32",
+                "random": true,
+                "min": "20",
+                "max": "50"
+            },
+            {
+                "key": "w",
+                "pressed": "43",
+                "random": false,
+                "min": "",
+                "max": ""
+            },
+            {
+                "key": "click",
+                "pressed": "52",
+                "random": true,
+                "min": "10",
+                "max": "20"
+            },
+            {
+                "key": "space",
+                "pressed": "2",
+                "random": false,
+                "min": "",
+                "max": ""
+            }
+        ]
+    }
+]
