@@ -14,6 +14,7 @@ class App:
         self.primaryBGButtom = "#ffffff"
 
         self.FieldsList = []
+        self.UpFieldsList = []
         self.Sidebar()
         self.Navbar = tk.Frame(self.root, width=600, height=40)
         self.Navbar.pack(side=tk.TOP, fill="both", padx=5, pady=5)
@@ -129,9 +130,52 @@ class App:
             btnView = tk.Button(row, text=f"{unicSymbol}", command=self.CreateViewItemButton(d), bg=self.primaryBGColor, fg=self.primaryBGButtom, font=("arial", 14, "bold"))
             btnView.pack(side=tk.RIGHT, pady=5, padx=20)   
 
-    def ViewItem(self, obj):
-        self.Navbar = self.setTitle(obj['title'])
+    def ViewItem(self, obj): 
         self.updateAllFrames()
+        self.Navbar = self.setTitle(obj['title'])
+
+        row = tk.Frame(self.CanvasContainer)
+        row.pack(fill="x", pady=5)
+
+        self.btnSave = tk.Button(row, text=f"{chr(0x23F5)} Play", command=lambda: self.UpdateItems(obj['title']), bg="green", fg=self.primaryBGButtom, font=("arial", 12))
+        self.btnSave.pack(side=tk.LEFT, pady=5, padx=5)
+
+        self.btnSave = tk.Button(row, text=f"{chr(0x23F9)} Stop", command=lambda: self.UpdateItems(obj['title']), bg="black", fg=self.primaryBGButtom, font=("arial", 12))
+        self.btnSave.pack(side=tk.LEFT, pady=5, padx=5)
+
+        row = tk.Frame(self.CanvasContainer)
+        row.pack(fill="x", pady=5)
+
+        title = tk.Label(row, text="Title", font=("arial", 15))
+        title.pack(side=tk.LEFT, padx=5)
+        titleValue = tk.Entry(row, width=20, font=("arial", 15))
+        titleValue.insert(0, obj['title'])
+        titleValue.pack(side=tk.LEFT, padx=5, pady=5)
+
+        pressDefaultTime = tk.Label(row, text=f"     {chr(0x1F552)}", font=("Arial", 15), width=4)
+        pressDefaultTime.pack(side="left", padx=0)
+        pressDefaultTime = tk.Label(row, text=f" Timer \n Default ", font=("Arial", 10), width=7)
+        pressDefaultTime.pack(side="left", padx=0)
+        pressDefaultTimeValue = tk.Entry(row, font=("Arial", 15), width=3)
+        pressDefaultTimeValue.insert(0, obj['timer_default'])
+        pressDefaultTimeValue.pack(side="left", padx=0)
+
+        self.UpFieldsList.append([
+            titleValue,
+            pressDefaultTimeValue
+        ])
+
+        self.btnNew = tk.Button(row, text=" + ", command=self.NewRow, bg=self.primaryBGColor, fg=self.primaryBGButtom, font=("arial", 12, "bold"))
+        self.btnNew.pack(side=tk.RIGHT, pady=5, padx=20)
+
+        self.btnSave = tk.Button(self.NavWidget, text=f"{chr(0x274C)} Delete", command=lambda: self.UpdateItems(obj['title']), bg="red", fg=self.primaryBGButtom, font=("arial", 12))
+        self.btnSave.pack(side=tk.LEFT, pady=5, padx=2)
+
+        self.btnSave = tk.Button(self.NavWidget, text=f"{chr(0x1F4BE)} Update", command=lambda: self.UpdateItems(obj['title']), bg=self.primaryBGColor, fg=self.primaryBGButtom, font=("arial", 12))
+        self.btnSave.pack(side=tk.LEFT, pady=5, padx=20)
+
+
+        #chr(0x26A0)
 
     def ViewAddProfile(self):
         self.Navbar = self.setTitle("Add Procedure")
@@ -231,6 +275,11 @@ class App:
             self.setMessage("New procedure included successfuly!")
         except Exception as e:
             raise e
+    
+    def UpdateItems(self, obj):
+        print('------------ UPDATE ------------')
+        print(obj)
+        print('------------ ------ ------------')
         
 if __name__ == "__main__":
     root = tk.Tk()

@@ -46,5 +46,44 @@
                 "max": ""
             }
         ]
+    },
+    {
+        "title": "Segundo",
+        "timer_default": "50",
+        "keys": [
+            {
+                "key": "2",
+                "pressed": "3",
+                "random": true,
+                "min": "2",
+                "max": "3"
+            }
+        ]
+    },
+    {
+        "title": "terceiro",
+        "timer_default": "4",
+        "keys": [
+            {
+                "key": "d",
+                "pressed": "d",
+                "random": false,
+                "min": "",
+                "max": ""
+            }
+        ]
+    },
+    {
+        "title": "Quarto",
+        "timer_default": "40",
+        "keys": [
+            {
+                "key": "4",
+                "pressed": "5",
+                "random": true,
+                "min": "6",
+                "max": "7"
+            }
+        ]
     }
 ]
