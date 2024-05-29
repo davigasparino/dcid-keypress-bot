@@ -160,6 +160,64 @@ class App:
         pressDefaultTimeValue.insert(0, obj['timer_default'])
         pressDefaultTimeValue.pack(side="left", padx=0)
 
+        print(' - - - - - - - - - - - - - - - - - - - - ')
+        # Variável para armazenar o estado do Checkbutton
+        checkbox_var = tk.BooleanVar()
+
+        # Defina o valor padrão como True (marcado)
+        checkbox_var.set(True)  # Altere para False se desejar desmarcar por padrão
+
+        # Crie o Checkbutton
+        checkbox = tk.Checkbutton(root, text="Random", variable=checkbox_var)
+        checkbox.pack(side="left", padx=5)
+            
+        # Variável para armazenar o estado do Checkbutton
+        randCheckbox = tk.BooleanVar()
+
+        # Defina o valor padrão como True (marcado)
+        randCheckbox.set(True)  # Altere para False se desejar desmarcar por padrão
+
+        # Crie o Checkbutton
+        checkboxItem = tk.Checkbutton(self.NavWidget, text="Random", variable=randCheckbox)
+        checkboxItem.pack(side="left", padx=5)
+
+        # Verifique o valor inicial
+        print("Valor inicial:", randCheckbox.get())
+
+        print(' - - - - - - - - - - - - - - - - - - - - ')
+
+        for k in obj['keys']:
+            row = tk.Frame(self.CanvasContainer)
+            row.pack(fill="x", pady=20)
+
+            key = tk.Label(row, text=f"{chr(0x1F80A)} Key", font=("Arial", 12))
+            key.pack(side="left", padx=5)
+            
+            keyValue = tk.Entry(row, font=("Arial", 12), width=10)
+            keyValue.insert(0, k['key'])
+            keyValue.pack(side="left", padx=5)
+
+            pressTime = tk.Label(row, text=f"     {chr(0x1F552)}", font=("Arial", 12), width=4)
+            pressTime.pack(side="left", padx=0)
+
+            pressTimeValue = tk.Entry(row, font=("Arial", 12), width=3)
+            pressTimeValue.insert(0, k['pressed'])
+            pressTimeValue.pack(side="left", padx=0)
+
+            separator = tk.Label(row, text=f"    {chr(0x27F2)}", font=("Arial", 12), width=4)
+            separator.pack(side="left", padx=0)
+
+            
+
+            random1 = tk.Entry(row, font=("Arial", 12), width=3)
+            random1.insert(0, k['min'])
+            random1.pack(side="left", padx=0)
+            randomLabel = tk.Label(row, text=f" x ", font=("Arial", 12), width=2)
+            randomLabel.pack(side="left", padx=0)
+            random2 = tk.Entry(row, font=("Arial", 12), width=3)
+            random2.insert(0, k['max'])
+            random2.pack(side="left", padx=0)
+
         self.UpFieldsList.append([
             titleValue,
             pressDefaultTimeValue
