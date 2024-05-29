@@ -160,33 +160,15 @@ class App:
         pressDefaultTimeValue.insert(0, obj['timer_default'])
         pressDefaultTimeValue.pack(side="left", padx=0)
 
-        print(' - - - - - - - - - - - - - - - - - - - - ')
-        # Variável para armazenar o estado do Checkbutton
-        checkbox_var = tk.BooleanVar()
+        self.btnNew = tk.Button(row, text=" + ", command=self.NewRow, bg=self.primaryBGColor, fg=self.primaryBGButtom, font=("arial", 12, "bold"))
+        self.btnNew.pack(side=tk.RIGHT, pady=5, padx=20)
 
-        # Defina o valor padrão como True (marcado)
-        checkbox_var.set(True)  # Altere para False se desejar desmarcar por padrão
-
-        # Crie o Checkbutton
-        checkbox = tk.Checkbutton(root, text="Random", variable=checkbox_var)
-        checkbox.pack(side="left", padx=5)
-            
-        # Variável para armazenar o estado do Checkbutton
-        randCheckbox = tk.BooleanVar()
-
-        # Defina o valor padrão como True (marcado)
-        randCheckbox.set(True)  # Altere para False se desejar desmarcar por padrão
-
-        # Crie o Checkbutton
-        checkboxItem = tk.Checkbutton(self.NavWidget, text="Random", variable=randCheckbox)
-        checkboxItem.pack(side="left", padx=5)
-
-        # Verifique o valor inicial
-        print("Valor inicial:", randCheckbox.get())
-
-        print(' - - - - - - - - - - - - - - - - - - - - ')
-
-        for k in obj['keys']:
+        self.checkbox_true = tk.BooleanVar()
+        self.checkbox_true.set(True) 
+        self.checkbox_false = tk.BooleanVar()
+        self.checkbox_false.set(False) 
+        
+        for n, k in enumerate(obj['keys']):
             row = tk.Frame(self.CanvasContainer)
             row.pack(fill="x", pady=20)
 
@@ -207,8 +189,13 @@ class App:
             separator = tk.Label(row, text=f"    {chr(0x27F2)}", font=("Arial", 12), width=4)
             separator.pack(side="left", padx=0)
 
+            if(k['random']):
+                checkbox = tk.Checkbutton(row, text=f"Random ", variable=self.checkbox_true)
+                checkbox.pack(side="left", padx=5)
+            else:
+                checkbox = tk.Checkbutton(row, text=f"Random ", variable=self.checkbox_false)
+                checkbox.pack(side="left", padx=5)            
             
-
             random1 = tk.Entry(row, font=("Arial", 12), width=3)
             random1.insert(0, k['min'])
             random1.pack(side="left", padx=0)
@@ -223,15 +210,11 @@ class App:
             pressDefaultTimeValue
         ])
 
-        self.btnNew = tk.Button(row, text=" + ", command=self.NewRow, bg=self.primaryBGColor, fg=self.primaryBGButtom, font=("arial", 12, "bold"))
-        self.btnNew.pack(side=tk.RIGHT, pady=5, padx=20)
-
         self.btnSave = tk.Button(self.NavWidget, text=f"{chr(0x274C)} Delete", command=lambda: self.UpdateItems(obj['title']), bg="red", fg=self.primaryBGButtom, font=("arial", 12))
         self.btnSave.pack(side=tk.LEFT, pady=5, padx=2)
 
         self.btnSave = tk.Button(self.NavWidget, text=f"{chr(0x1F4BE)} Update", command=lambda: self.UpdateItems(obj['title']), bg=self.primaryBGColor, fg=self.primaryBGButtom, font=("arial", 12))
         self.btnSave.pack(side=tk.LEFT, pady=5, padx=20)
-
 
         #chr(0x26A0)
 
