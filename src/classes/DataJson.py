@@ -4,6 +4,7 @@ import os
 class DataJson:
 
     jsonFile = os.path.join(os.getcwd()+'\data', 'profiles.json')
+    BD = os.path.join(os.getcwd()+'\data', 'bd.json')
 
     def ReadItems(self):
         with open(self.jsonFile, 'r') as arquivo_json:
@@ -16,10 +17,15 @@ class DataJson:
         with open(self.jsonFile, 'r') as arquivo_json:
             dados_json = json.load(arquivo_json)
 
+        sequence = self.getSequence()
+
         # Abrindo o arquivo para escrita (novo bloco `with`)
         with open(self.jsonFile, 'w') as arquivo_json_escrita:
             # Inserindo o novo nó na lista
-            dados_json.append(items)
+            dados_json.append({
+                "id": sequence,
+                "data": items
+            })
 
             # Gravando as modificações no arquivo
             json.dump(dados_json, arquivo_json_escrita, indent=4)
@@ -41,3 +47,14 @@ class DataJson:
         # Atualize o arquivo JSON com as modificações
         with open(self.jsonFile, 'w') as arquivo_json:
             json.dump(dados_json, arquivo_json, indent=4)
+
+    def getSequence(self):
+        with open(self.BD, 'r') as data:
+            sequence = json.load(data)
+        
+        sequence[0]['sequence'] = sequence[0]['sequence'] + 1
+        
+        with open(self.BD, 'w') as upSeq:
+            json.dump(sequence, upSeq, indent=4)
+
+        return sequence[0]['sequence']

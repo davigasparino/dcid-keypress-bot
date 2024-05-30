@@ -123,7 +123,7 @@ class App:
             row = tk.Frame(self.CanvasContainer, bg="#ffffff")
             row.pack(fill="x", pady=5)
 
-            title = tk.Label(row, text=f"{chr(0x1F80A)}   {d['title']}    ", font=("Arial", 12), bg="#ffffff", width=50)
+            title = tk.Label(row, text=f"{chr(0x1F80A)}   {d['data']['title']}    ", font=("Arial", 12), bg="#ffffff", width=50)
             title.pack(side=tk.LEFT, padx=15)
 
             unicSymbol = chr(0x1F50D)
@@ -132,15 +132,15 @@ class App:
 
     def ViewItem(self, obj): 
         self.updateAllFrames()
-        self.Navbar = self.setTitle(obj['title'])
+        self.Navbar = self.setTitle(obj['data']['title'])
 
         row = tk.Frame(self.CanvasContainer)
         row.pack(fill="x", pady=5)
 
-        self.btnSave = tk.Button(row, text=f"{chr(0x23F5)} Play", command=lambda: self.UpdateItems(obj['title']), bg="green", fg=self.primaryBGButtom, font=("arial", 12))
+        self.btnSave = tk.Button(row, text=f"{chr(0x23F5)} Play", command=lambda: self.UpdateItems(obj['data']['title']), bg="green", fg=self.primaryBGButtom, font=("arial", 12))
         self.btnSave.pack(side=tk.LEFT, pady=5, padx=5)
 
-        self.btnSave = tk.Button(row, text=f"{chr(0x23F9)} Stop", command=lambda: self.UpdateItems(obj['title']), bg="black", fg=self.primaryBGButtom, font=("arial", 12))
+        self.btnSave = tk.Button(row, text=f"{chr(0x23F9)} Stop", command=lambda: self.UpdateItems(obj['data']['title']), bg="black", fg=self.primaryBGButtom, font=("arial", 12))
         self.btnSave.pack(side=tk.LEFT, pady=5, padx=5)
 
         row = tk.Frame(self.CanvasContainer)
@@ -149,7 +149,7 @@ class App:
         title = tk.Label(row, text="Title", font=("arial", 15))
         title.pack(side=tk.LEFT, padx=5)
         titleValue = tk.Entry(row, width=20, font=("arial", 15))
-        titleValue.insert(0, obj['title'])
+        titleValue.insert(0, obj['data']['title'])
         titleValue.pack(side=tk.LEFT, padx=5, pady=5)
 
         pressDefaultTime = tk.Label(row, text=f"     {chr(0x1F552)}", font=("Arial", 15), width=4)
@@ -157,7 +157,7 @@ class App:
         pressDefaultTime = tk.Label(row, text=f" Timer \n Default ", font=("Arial", 10), width=7)
         pressDefaultTime.pack(side="left", padx=0)
         pressDefaultTimeValue = tk.Entry(row, font=("Arial", 15), width=3)
-        pressDefaultTimeValue.insert(0, obj['timer_default'])
+        pressDefaultTimeValue.insert(0, obj['data']['timer_default'])
         pressDefaultTimeValue.pack(side="left", padx=0)
 
         self.btnNew = tk.Button(row, text=" + ", command=self.NewRow, bg=self.primaryBGColor, fg=self.primaryBGButtom, font=("arial", 12, "bold"))
@@ -167,8 +167,15 @@ class App:
         self.checkbox_true.set(True) 
         self.checkbox_false = tk.BooleanVar()
         self.checkbox_false.set(False) 
+
+        self.UpFieldsList.append([
+            titleValue,
+            pressDefaultTimeValue
+        ])
+
+        self.checkboxValues = [tk.BooleanVar() for _ in range(len(obj['data']['keys']))]
         
-        for n, k in enumerate(obj['keys']):
+        for n, k in enumerate(obj['data']['keys']):
             row = tk.Frame(self.CanvasContainer)
             row.pack(fill="x", pady=20)
 
@@ -189,12 +196,14 @@ class App:
             separator = tk.Label(row, text=f"    {chr(0x27F2)}", font=("Arial", 12), width=4)
             separator.pack(side="left", padx=0)
 
+            self.checkboxValues[n] = tk.BooleanVar()
             if(k['random']):
-                checkbox = tk.Checkbutton(row, text=f"Random ", variable=self.checkbox_true)
-                checkbox.pack(side="left", padx=5)
+                self.checkboxValues[n].set(True)
             else:
-                checkbox = tk.Checkbutton(row, text=f"Random ", variable=self.checkbox_false)
-                checkbox.pack(side="left", padx=5)            
+                self.checkboxValues[n].set(False)
+
+            checkbox = tk.Checkbutton(row, text=f"Random ", variable=self.checkboxValues[n])
+            checkbox.pack(side="left", padx=5)            
             
             random1 = tk.Entry(row, font=("Arial", 12), width=3)
             random1.insert(0, k['min'])
@@ -205,10 +214,13 @@ class App:
             random2.insert(0, k['max'])
             random2.pack(side="left", padx=0)
 
-        self.UpFieldsList.append([
-            titleValue,
-            pressDefaultTimeValue
-        ])
+            self.UpFieldsList.append([
+                keyValue,
+                pressTimeValue,
+                self.checkboxValues[n],
+                random1,
+                random2
+            ])
 
         self.btnSave = tk.Button(self.NavWidget, text=f"{chr(0x274C)} Delete", command=lambda: self.UpdateItems(obj['title']), bg="red", fg=self.primaryBGButtom, font=("arial", 12))
         self.btnSave.pack(side=tk.LEFT, pady=5, padx=2)
@@ -312,14 +324,32 @@ class App:
             saveJson = dj()
             saveJson.insertItem(sendJson)
 
+            self.FieldsList = []
             self.viewProcedure()
             self.setMessage("New procedure included successfuly!")
         except Exception as e:
             raise e
     
-    def UpdateItems(self, obj):
+    def UpdateItems(self, primaryKey = 0):
         print('------------ UPDATE ------------')
-        print(obj)
+        
+        items = []
+        for n, field in enumerate(self.UpFieldsList):
+            if n > 0:
+                items.append({
+                    "key": field[0].get(),
+                    "pressed": field[1].get(),
+                    #"random": field[2].get(),
+                    "min": field[3].get(),
+                    "max": field[4].get()
+                })
+
+        sendJson = {
+            "title": self.UpFieldsList[0][0].get(),
+            "timer_default": self.UpFieldsList[0][1].get(),
+            "keys": items
+        }
+        print(sendJson)
         print('------------ ------ ------------')
         
 if __name__ == "__main__":

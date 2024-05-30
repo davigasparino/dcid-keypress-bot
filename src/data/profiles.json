@@ -1,89 +1,41 @@
 [
     {
-        "title": "Primeiro BOT",
-        "timer_default": "40",
-        "keys": [
-            {
-                "key": "a",
-                "pressed": "12",
-                "random": false,
-                "min": "",
-                "max": ""
-            },
-            {
-                "key": "s",
-                "pressed": "23",
-                "random": false,
-                "min": "",
-                "max": ""
-            },
-            {
-                "key": "d",
-                "pressed": "32",
-                "random": true,
-                "min": "20",
-                "max": "50"
-            },
-            {
-                "key": "w",
-                "pressed": "43",
-                "random": false,
-                "min": "",
-                "max": ""
-            },
-            {
-                "key": "click",
-                "pressed": "52",
-                "random": true,
-                "min": "10",
-                "max": "20"
-            },
-            {
-                "key": "space",
-                "pressed": "2",
-                "random": false,
-                "min": "",
-                "max": ""
-            }
-        ]
+        "id": 1,
+        "data": {
+            "title": "wetw",
+            "timer_default": "we",
+            "keys": [
+                {
+                    "key": "w",
+                    "pressed": "e",
+                    "random": false,
+                    "min": "1",
+                    "max": "2"
+                },
+                {
+                    "key": "er",
+                    "pressed": "w",
+                    "random": true,
+                    "min": "3",
+                    "max": "4"
+                }
+            ]
+        }
     },
     {
-        "title": "Segundo",
-        "timer_default": "50",
-        "keys": [
-            {
-                "key": "2",
-                "pressed": "3",
-                "random": true,
-                "min": "2",
-                "max": "3"
-            }
-        ]
-    },
-    {
-        "title": "terceiro",
-        "timer_default": "4",
-        "keys": [
-            {
-                "key": "d",
-                "pressed": "d",
-                "random": false,
-                "min": "",
-                "max": ""
-            }
-        ]
-    },
-    {
-        "title": "Quarto",
-        "timer_default": "40",
-        "keys": [
-            {
-                "key": "4",
-                "pressed": "5",
-                "random": true,
-                "min": "6",
-                "max": "7"
-            }
-        ]
+        "id": 2,
+        "data": {
+            "title": "rhdrthrdt",
+            "timer_default": "rr",
+            "keys": [
+                {
+                    "key": "rht",
+                    "pressed": "ht",
+                    "random": true,
+                    "min": "t",
+                    "max": "t"
+                }
+            ]
+        }
     }
 ]
