@@ -137,10 +137,10 @@ class App:
         row = tk.Frame(self.CanvasContainer)
         row.pack(fill="x", pady=5)
 
-        self.btnSave = tk.Button(row, text=f"{chr(0x23F5)} Play", command=lambda: self.UpdateItems(obj['data']['title']), bg="green", fg=self.primaryBGButtom, font=("arial", 12))
+        self.btnSave = tk.Button(row, text=f"{chr(0x23F5)} Play", bg="green", fg=self.primaryBGButtom, font=("arial", 12))
         self.btnSave.pack(side=tk.LEFT, pady=5, padx=5)
 
-        self.btnSave = tk.Button(row, text=f"{chr(0x23F9)} Stop", command=lambda: self.UpdateItems(obj['data']['title']), bg="black", fg=self.primaryBGButtom, font=("arial", 12))
+        self.btnSave = tk.Button(row, text=f"{chr(0x23F9)} Stop", bg="black", fg=self.primaryBGButtom, font=("arial", 12))
         self.btnSave.pack(side=tk.LEFT, pady=5, padx=5)
 
         row = tk.Frame(self.CanvasContainer)
@@ -222,10 +222,10 @@ class App:
                 random2
             ])
 
-        self.btnSave = tk.Button(self.NavWidget, text=f"{chr(0x274C)} Delete", command=lambda: self.UpdateItems(obj['title']), bg="red", fg=self.primaryBGButtom, font=("arial", 12))
+        self.btnSave = tk.Button(self.NavWidget, text=f"{chr(0x274C)} Delete", bg="red", fg=self.primaryBGButtom, font=("arial", 12))
         self.btnSave.pack(side=tk.LEFT, pady=5, padx=2)
 
-        self.btnSave = tk.Button(self.NavWidget, text=f"{chr(0x1F4BE)} Update", command=lambda: self.UpdateItems(obj['title']), bg=self.primaryBGColor, fg=self.primaryBGButtom, font=("arial", 12))
+        self.btnSave = tk.Button(self.NavWidget, text=f"{chr(0x1F4BE)} Update", command=lambda: self.UpdateItems(obj['id']), bg=self.primaryBGColor, fg=self.primaryBGButtom, font=("arial", 12))
         self.btnSave.pack(side=tk.LEFT, pady=5, padx=20)
 
         #chr(0x26A0)
@@ -330,16 +330,14 @@ class App:
         except Exception as e:
             raise e
     
-    def UpdateItems(self, primaryKey = 0):
-        print('------------ UPDATE ------------')
-        
+    def UpdateItems(self, primaryKey):        
         items = []
         for n, field in enumerate(self.UpFieldsList):
             if n > 0:
                 items.append({
                     "key": field[0].get(),
                     "pressed": field[1].get(),
-                    #"random": field[2].get(),
+                    "random": field[2].get(),
                     "min": field[3].get(),
                     "max": field[4].get()
                 })
@@ -349,7 +347,22 @@ class App:
             "timer_default": self.UpFieldsList[0][1].get(),
             "keys": items
         }
+
+        print('------------ upFIelds ------------')
         print(sendJson)
+        print('------------ UPDATE ------------')
+        
+        try:
+            saveJson = dj()
+            saveJson.updateItem(primaryKey, sendJson)
+            self.viewProcedure()
+            #self.ViewItem(obj)
+            self.UpUpFieldsList = []
+            self.setMessage("Procedure Update successfuly!")
+        except Exception as e:
+            raise e
+        
+        
         print('------------ ------ ------------')
         
 if __name__ == "__main__":

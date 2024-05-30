@@ -18,33 +18,28 @@ class DataJson:
             dados_json = json.load(arquivo_json)
 
         sequence = self.getSequence()
-
+        
         # Abrindo o arquivo para escrita (novo bloco `with`)
         with open(self.jsonFile, 'w') as arquivo_json_escrita:
             # Inserindo o novo nó na lista
             dados_json.append({
-                "id": sequence,
-                "data": items
+                "id" : sequence, 
+                "data": items                 
             })
 
             # Gravando as modificações no arquivo
             json.dump(dados_json, arquivo_json_escrita, indent=4)
 
-    def updateItem(self, position):
-        import json
-
+    def updateItem(self, id, items):
+    
         # Carregue o conteúdo do JSON em um objeto Python
         with open(self.jsonFile, 'r') as arquivo_json:
             dados_json = json.load(arquivo_json)
 
-        # Acesse o segundo nó
-        segundo_no = dados_json[position]
+        for item in dados_json:
+            if item.get('id') == id:
+                item['data'] = items
 
-        # Altere os valores desejados
-        segundo_no["pressed"] = 74
-        segundo_no["random"] = "false"
-
-        # Atualize o arquivo JSON com as modificações
         with open(self.jsonFile, 'w') as arquivo_json:
             json.dump(dados_json, arquivo_json, indent=4)
 
