@@ -14,7 +14,6 @@ class App:
         self.primaryBGButtom = "#ffffff"
 
         self.FieldsList = []
-        self.UpFieldsList = []
         self.Sidebar()
         self.Navbar = tk.Frame(self.root, width=600, height=40)
         self.Navbar.pack(side=tk.TOP, fill="both", padx=5, pady=5)
@@ -168,7 +167,7 @@ class App:
         self.checkbox_false = tk.BooleanVar()
         self.checkbox_false.set(False) 
 
-        self.UpFieldsList.append([
+        self.FieldsList.append([
             titleValue,
             pressDefaultTimeValue
         ])
@@ -214,7 +213,7 @@ class App:
             random2.insert(0, k['max'])
             random2.pack(side="left", padx=0)
 
-            self.UpFieldsList.append([
+            self.FieldsList.append([
                 keyValue,
                 pressTimeValue,
                 self.checkboxValues[n],
@@ -302,25 +301,25 @@ class App:
         ])
         self.updateScrollConfigs()
 
-    def saveItems(self):        
-        items = []
-        for n, field in enumerate(self.FieldsList):
-            if n > 0:
-                items.append({
-                    "key": field[0].get(),
-                    "pressed": field[1].get(),
-                    "random": field[2].get(),
-                    "min": field[3].get(),
-                    "max": field[4].get()
-                })
+    def saveItems(self): 
+        try:      
+            items = []
+            for n, field in enumerate(self.FieldsList):
+                if n > 0:
+                    items.append({
+                        "key": field[0].get(),
+                        "pressed": field[1].get(),
+                        "random": field[2].get(),
+                        "min": field[3].get(),
+                        "max": field[4].get()
+                    })
 
-        sendJson = {
-            "title": self.FieldsList[0][0].get(),
-            "timer_default": self.FieldsList[0][1].get(),
-            "keys": items
-        }
-
-        try:
+            sendJson = {
+                "title": self.FieldsList[0][0].get(),
+                "timer_default": self.FieldsList[0][1].get(),
+                "keys": items
+            }
+        
             saveJson = dj()
             saveJson.insertItem(sendJson)
 
@@ -330,40 +329,35 @@ class App:
         except Exception as e:
             raise e
     
-    def UpdateItems(self, primaryKey):        
-        items = []
-        for n, field in enumerate(self.UpFieldsList):
-            if n > 0:
-                items.append({
-                    "key": field[0].get(),
-                    "pressed": field[1].get(),
-                    "random": field[2].get(),
-                    "min": field[3].get(),
-                    "max": field[4].get()
-                })
+    def UpdateItems(self, primaryKey):  
+        try:      
+            items = []
+            for n, field in enumerate(self.FieldsList):
+                print(field)
+                if n > 0 and field[0] and field[1] and field[2] and field[3] and field[4]:
+                    items.append({
+                        "key": field[0].get(),
+                        "pressed": field[1].get(),
+                        "random": field[2].get(),
+                        "min": field[3].get(),
+                        "max": field[4].get()
+                    })
 
-        sendJson = {
-            "title": self.UpFieldsList[0][0].get(),
-            "timer_default": self.UpFieldsList[0][1].get(),
-            "keys": items
-        }
-
-        print('------------ upFIelds ------------')
-        print(sendJson)
-        print('------------ UPDATE ------------')
-        
-        try:
+            sendJson = {
+                "title": self.FieldsList[0][0].get(),
+                "timer_default": self.FieldsList[0][1].get(),
+                "keys": items
+            }           
+            
             saveJson = dj()
             saveJson.updateItem(primaryKey, sendJson)
+        
+            self.FieldsList = []
             self.viewProcedure()
-            #self.ViewItem(obj)
-            self.UpUpFieldsList = []
             self.setMessage("Procedure Update successfuly!")
         except Exception as e:
             raise e
         
-        
-        print('------------ ------ ------------')
         
 if __name__ == "__main__":
     root = tk.Tk()
