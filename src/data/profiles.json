@@ -2,29 +2,43 @@
     {
         "id": 19,
         "data": {
-            "title": "Primeiro ",
-            "timer_default": "17",
+            "title": "Fortnite LEGO",
+            "timer_default": "10",
             "keys": [
                 {
                     "key": "w",
-                    "pressed": "e",
+                    "pressed": "5",
                     "random": false,
                     "min": "1",
                     "max": "2"
                 },
                 {
-                    "key": "er",
-                    "pressed": "w",
+                    "key": "d",
+                    "pressed": "7",
                     "random": true,
                     "min": "3",
                     "max": "4"
                 },
                 {
-                    "key": "s",
-                    "pressed": "12",
+                    "key": "space",
+                    "pressed": "1",
                     "random": true,
                     "min": "5",
                     "max": "6"
+                },
+                {
+                    "key": "s",
+                    "pressed": "",
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "enter",
+                    "pressed": "0",
+                    "random": false,
+                    "min": "",
+                    "max": ""
                 }
             ]
         }

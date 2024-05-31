@@ -1,22 +1,30 @@
 import tkinter as tk
+import threading
 
+def iniciar_loop():
+    # Função que será executada em loop infinito
+    while True:
+        print("Loop infinito...")
 
-class App:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("Layout Personalizado")
-        self.root.geometry("800x600")
+def parar_loop():
+    # Função para interromper o loop
+    global loop_thread
+    loop_thread.join()  # Aguarda até que o loop termine
+    print("Loop interrompido!")
 
-        frame = tk.Frame(self.root)
-        frame.pack(side="top", fill="x", padx=5)
+root = tk.Tk()
 
-        self.checkbox_var = tk.BooleanVar()
-        self.checkbox_var.set(True)
-        
-        self.checkbox = tk.Checkbutton(frame, text="Random", variable= self.checkbox_var)
-        self.checkbox.pack(side="left", padx=5)
+# Botão "Play"
+play_button = tk.Button(root, text="Play", command=lambda: iniciar_loop_thread())
+play_button.pack()
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = App(root)
-    root.mainloop()
+# Botão "Stop"
+stop_button = tk.Button(root, text="Stop", command=parar_loop)
+stop_button.pack()
+
+def iniciar_loop_thread():
+    global loop_thread
+    loop_thread = threading.Thread(target=iniciar_loop)
+    loop_thread.start()
+
+root.mainloop()

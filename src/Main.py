@@ -2,12 +2,21 @@ import tkinter as tk
 from classes.DataJson import DataJson as dj
 import json
 import time
+import threading
+import sys
+import keyboard
+from datetime import datetime
 
 class App:
     def __init__(self, root):
         self.root = root
         self.root.title("Layout Personalizado")
         self.root.geometry("800x600")
+
+        self.robotLoop = False
+        self.robotObj = []
+        self.robotCount = 0
+        sys.setrecursionlimit(1500000)
 
         self.primaryBGColor = "#0055aa"
         self.secondaryBGColor = "#5555bb"
@@ -130,17 +139,26 @@ class App:
             btnView.pack(side=tk.RIGHT, pady=5, padx=20)   
 
     def ViewItem(self, obj): 
+        self.robotLoop = False
+        self.robotObj = obj
         self.updateAllFrames()
         self.Navbar = self.setTitle(obj['data']['title'])
 
         row = tk.Frame(self.CanvasContainer)
         row.pack(fill="x", pady=5)
 
-        self.btnSave = tk.Button(row, text=f"{chr(0x23F5)} Play", bg="green", fg=self.primaryBGButtom, font=("arial", 12))
+        self.btnSave = tk.Button(row, text=f"{chr(0x23F5)} Play", 
+        command=lambda: threading.Thread(
+            target=self.Robot
+        ).start(), bg="green", fg=self.primaryBGButtom, font=("arial", 12))
         self.btnSave.pack(side=tk.LEFT, pady=5, padx=5)
 
-        self.btnSave = tk.Button(row, text=f"{chr(0x23F9)} Stop", bg="black", fg=self.primaryBGButtom, font=("arial", 12))
+        self.btnSave = tk.Button(row, text=f"{chr(0x23F9)} Stop", 
+        command=self.StopTheRobot, bg="black", fg=self.primaryBGButtom, font=("arial", 12))
         self.btnSave.pack(side=tk.LEFT, pady=5, padx=5)
+
+        self.LiveTime = tk.Label(row, font=("Helvetica", 24))
+        self.LiveTime.pack()
 
         row = tk.Frame(self.CanvasContainer)
         row.pack(fill="x", pady=5)
@@ -334,7 +352,7 @@ class App:
             items = []
             for n, field in enumerate(self.FieldsList):
                 print(field)
-                if n > 0 and field[0] and field[1] and field[2] and field[3] and field[4]:
+                if n > 0 and all(field):
                     items.append({
                         "key": field[0].get(),
                         "pressed": field[1].get(),
@@ -357,6 +375,63 @@ class App:
             self.setMessage("Procedure Update successfuly!")
         except Exception as e:
             raise e
+        
+    def Robot(self):
+        self.robotLoop = True
+        self.RobotStart()
+    
+    def RobotStart(self):
+        self.AutomateActions()
+
+        while self.robotLoop == True:
+            if self.robotCount > sys.getrecursionlimit() - 100:
+                self.StopTheRobot()
+
+            print(f'em execução {self.robotCount}')
+            self.robotCount += 1
+            self.RobotStart()
+    
+    def StopTheRobot(self):
+        self.robotCount = 0
+        self.robotLoop = False
+        print("Loop interrompido!")
+        
+    def AutomateActions(self):
+        print(' * - * - * - * - * - * - * - * - * - * - * - * ')
+        print(self.robotObj)
+        interval = 0.1
+
+        for k in self.robotObj['data']['keys']:
+            timer_default = 10
+
+            if self.robotObj['data']['timer_default']:
+                timer_default = self.robotObj['data']['timer_default']
+
+            if k['pressed']:
+                timer_default = k['pressed']
+           
+            print(f"inicio em {datetime.now().minute}:{datetime.now().second}")
+            
+            if int(timer_default) <= 1:
+                print('-----> ', timer_default)
+                keyboard.press(k['key'])
+            else:
+                startTime = time.time()
+                while time.time() - startTime < int(timer_default):
+                    if not self.robotLoop:
+                        break
+
+                    keyboard.press(k['key'])
+                    time.sleep(interval)
+                    keyboard.release(k['key'])
+
+                print(f"Fim em {datetime.now().minute}:{datetime.now().second}")
+
+            #print(f"pressionando a tecla {k['key']} po {timer_default} segundos")
+            
+
+        print(' * - * - * - * - * - * - * - * - * - * - * - * ')
+
         
         
 if __name__ == "__main__":
