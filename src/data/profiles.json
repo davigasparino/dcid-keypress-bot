@@ -4,39 +4,53 @@
         "data": {
             "title": "Fortnite LEGO",
             "timer_default": "10",
+            "notes": "22.5, 27.8 - 28.1",
             "keys": [
                 {
                     "key": "w",
-                    "pressed": "5",
+                    "pressed": "7",
+                    "onetap": false,
                     "random": false,
-                    "min": "1",
-                    "max": "2"
+                    "min": "2",
+                    "max": "10"
                 },
                 {
                     "key": "d",
                     "pressed": "7",
+                    "onetap": false,
                     "random": true,
-                    "min": "3",
-                    "max": "4"
-                },
-                {
-                    "key": "space",
-                    "pressed": "1",
-                    "random": true,
-                    "min": "5",
-                    "max": "6"
+                    "min": "4",
+                    "max": "10"
                 },
                 {
                     "key": "s",
-                    "pressed": "",
+                    "pressed": "7",
+                    "onetap": false,
                     "random": false,
-                    "min": "",
-                    "max": ""
+                    "min": "3",
+                    "max": "12"
                 },
                 {
-                    "key": "enter",
-                    "pressed": "0",
-                    "random": false,
+                    "key": "a",
+                    "pressed": "7",
+                    "onetap": false,
+                    "random": true,
+                    "min": "2",
+                    "max": "14"
+                },
+                {
+                    "key": "space",
+                    "pressed": "2",
+                    "onetap": false,
+                    "random": true,
+                    "min": "2",
+                    "max": "4"
+                },
+                {
+                    "key": "click",
+                    "pressed": "1",
+                    "onetap": false,
+                    "random": true,
                     "min": "",
                     "max": ""
                 }
@@ -46,172 +60,107 @@
     {
         "id": 28,
         "data": {
-            "title": "Segundo ",
-            "timer_default": "38",
+            "title": "Teste Click",
+            "timer_default": "",
+            "notes": "",
             "keys": [
                 {
-                    "key": "w",
-                    "pressed": "e",
-                    "random": false,
-                    "min": "1",
-                    "max": "2"
+                    "key": "click",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": true,
+                    "min": "",
+                    "max": ""
                 },
                 {
-                    "key": "er",
-                    "pressed": "w",
-                    "random": true,
-                    "min": "3",
-                    "max": "4"
+                    "key": "",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": false,
+                    "min": "",
+                    "max": ""
                 }
             ]
         }
     },
     {
-        "id": 35,
+        "id": 53,
         "data": {
-            "title": "Terceiro ",
-            "timer_default": "we",
+            "title": "Fortnite FESTIVAL",
+            "timer_default": "20",
+            "notes": "28.2, 32.7",
             "keys": [
                 {
                     "key": "w",
-                    "pressed": "e",
-                    "random": false,
-                    "min": "1",
-                    "max": "2"
-                },
-                {
-                    "key": "er",
-                    "pressed": "w",
+                    "pressed": "",
+                    "onetap": false,
                     "random": true,
                     "min": "3",
-                    "max": "4"
-                },
-                {
-                    "key": "123",
-                    "pressed": "4",
-                    "random": true,
-                    "min": "5",
-                    "max": "6"
-                },
-                {
-                    "key": "7",
-                    "pressed": "8",
-                    "random": true,
-                    "min": "9",
                     "max": "10"
                 },
                 {
-                    "key": "3",
-                    "pressed": "4",
-                    "random": true,
-                    "min": "4",
-                    "max": "3"
-                }
-            ]
-        }
-    },
-    {
-        "id": 48,
-        "data": {
-            "title": "Quarto ",
-            "timer_default": "ew te r",
-            "keys": [
-                {
-                    "key": "sd rg sr",
-                    "pressed": "sr re ",
-                    "random": false,
-                    "min": "e  serg esr",
-                    "max": ""
-                },
-                {
-                    "key": "serg",
-                    "pressed": " ers gers",
-                    "random": true,
-                    "min": "",
-                    "max": " segrse eg sr"
-                },
-                {
-                    "key": "egre ",
+                    "key": "a",
                     "pressed": "",
-                    "random": true,
-                    "min": "",
-                    "max": ""
-                }
-            ]
-        }
-    },
-    {
-        "id": 49,
-        "data": {
-            "title": "Quinto ",
-            "timer_default": "34",
-            "keys": [
-                {
-                    "key": "2",
-                    "pressed": "3",
-                    "random": true,
-                    "min": "",
-                    "max": ""
-                }
-            ]
-        }
-    },
-    {
-        "id": 50,
-        "data": {
-            "title": "Sexto ",
-            "timer_default": "34",
-            "keys": [
-                {
-                    "key": "a",
-                    "pressed": "23",
-                    "random": true,
-                    "min": "1",
-                    "max": "2"
-                },
-                {
-                    "key": "s",
-                    "pressed": "34",
-                    "random": true,
-                    "min": "3",
-                    "max": "3"
-                },
-                {
-                    "key": "a",
-                    "pressed": "w",
+                    "onetap": false,
                     "random": true,
                     "min": "2",
-                    "max": "45"
-                }
-            ]
-        }
-    },
-    {
-        "id": 51,
-        "data": {
-            "title": "S\u00e9timo ",
-            "timer_default": "45",
-            "keys": [
-                {
-                    "key": "e",
-                    "pressed": "r",
-                    "random": true,
-                    "min": "t",
-                    "max": "e"
+                    "max": "12"
                 },
                 {
-                    "key": "a",
-                    "pressed": "122",
+                    "key": "b",
+                    "pressed": "",
+                    "onetap": true,
                     "random": true,
-                    "min": "22",
-                    "max": "2"
+                    "min": "15",
+                    "max": "40"
                 },
                 {
                     "key": "d",
-                    "pressed": "s",
+                    "pressed": "",
+                    "onetap": false,
                     "random": true,
-                    "min": "s",
-                    "max": "s"
+                    "min": "4",
+                    "max": "14"
+                },
+                {
+                    "key": "space",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": true,
+                    "min": "2",
+                    "max": "5"
+                },
+                {
+                    "key": "b",
+                    "pressed": "",
+                    "onetap": true,
+                    "random": true,
+                    "min": "20",
+                    "max": "60"
+                },
+                {
+                    "key": "click",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": true,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "s",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": true,
+                    "min": "1",
+                    "max": "9"
+                },
+                {
+                    "key": "b",
+                    "pressed": "",
+                    "onetap": true,
+                    "random": false,
+                    "min": "10",
+                    "max": "30"
                 }
             ]
         }

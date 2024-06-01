@@ -6,12 +6,16 @@ import threading
 import sys
 import keyboard
 from datetime import datetime
+import pyautogui
+import random
 
 class App:
     def __init__(self, root):
         self.root = root
         self.root.title("Layout Personalizado")
         self.root.geometry("800x600")
+
+        self.cc = 0
 
         self.robotLoop = False
         self.robotObj = []
@@ -165,7 +169,7 @@ class App:
 
         title = tk.Label(row, text="Title", font=("arial", 15))
         title.pack(side=tk.LEFT, padx=5)
-        titleValue = tk.Entry(row, width=20, font=("arial", 15))
+        titleValue = tk.Entry(row, width=15, font=("arial", 15))
         titleValue.insert(0, obj['data']['title'])
         titleValue.pack(side=tk.LEFT, padx=5, pady=5)
 
@@ -180,17 +184,23 @@ class App:
         self.btnNew = tk.Button(row, text=" + ", command=self.NewRow, bg=self.primaryBGColor, fg=self.primaryBGButtom, font=("arial", 12, "bold"))
         self.btnNew.pack(side=tk.RIGHT, pady=5, padx=20)
 
-        self.checkbox_true = tk.BooleanVar()
-        self.checkbox_true.set(True) 
-        self.checkbox_false = tk.BooleanVar()
-        self.checkbox_false.set(False) 
+        row = tk.Frame(self.CanvasContainer)
+        row.pack(fill="x", pady=5)
+        obs = tk.Label(row, text="Obs", font=("arial", 12))
+        obs.pack(side=tk.LEFT, padx=5)
+        obsValue = tk.Entry(row, width=30, font=("arial", 12))
+        if obj['data']['notes']:
+            obsValue.insert(0, obj['data']['notes'])
+        obsValue.pack(side=tk.LEFT, padx=5, pady=5)
 
         self.FieldsList.append([
             titleValue,
-            pressDefaultTimeValue
+            pressDefaultTimeValue,
+            obsValue
         ])
 
         self.checkboxValues = [tk.BooleanVar() for _ in range(len(obj['data']['keys']))]
+        self.oneTapValues = [tk.BooleanVar() for _ in range(len(obj['data']['keys']))]
         
         for n, k in enumerate(obj['data']['keys']):
             row = tk.Frame(self.CanvasContainer)
@@ -210,8 +220,14 @@ class App:
             pressTimeValue.insert(0, k['pressed'])
             pressTimeValue.pack(side="left", padx=0)
 
-            separator = tk.Label(row, text=f"    {chr(0x27F2)}", font=("Arial", 12), width=4)
-            separator.pack(side="left", padx=0)
+            self.oneTapValues[n] = tk.BooleanVar()
+            if(k['onetap']):
+                self.oneTapValues[n].set(True)
+            else:
+                self.oneTapValues[n].set(False)
+                
+            oneTapcheckbox = tk.Checkbutton(row, text=f"One Tap ", variable=self.oneTapValues[n])
+            oneTapcheckbox.pack(side="left", padx=5)      
 
             self.checkboxValues[n] = tk.BooleanVar()
             if(k['random']):
@@ -219,8 +235,12 @@ class App:
             else:
                 self.checkboxValues[n].set(False)
 
+            separator = tk.Label(row, text=f"    {chr(0x27F2)}", font=("Arial", 12), width=4)
+            separator.pack(side="left", padx=0)
+            
             checkbox = tk.Checkbutton(row, text=f"Random ", variable=self.checkboxValues[n])
             checkbox.pack(side="left", padx=5)            
+                  
             
             random1 = tk.Entry(row, font=("Arial", 12), width=3)
             random1.insert(0, k['min'])
@@ -234,6 +254,7 @@ class App:
             self.FieldsList.append([
                 keyValue,
                 pressTimeValue,
+                self.oneTapValues[n],
                 self.checkboxValues[n],
                 random1,
                 random2
@@ -267,13 +288,21 @@ class App:
         pressDefaultTimeValue = tk.Entry(row, font=("Arial", 15), width=3)
         pressDefaultTimeValue.pack(side="left", padx=0)
 
-        self.FieldsList.append([
-            titleValue,
-            pressDefaultTimeValue
-        ])
-        
         self.btnNew = tk.Button(row, text=" + ", command=self.NewRow, bg=self.primaryBGColor, fg=self.primaryBGButtom, font=("arial", 12, "bold"))
         self.btnNew.pack(side=tk.RIGHT, pady=5, padx=20)
+
+        row = tk.Frame(self.CanvasContainer)
+        row.pack(fill="x", pady=5)
+        obs = tk.Label(row, text="Obs", font=("arial", 12))
+        obs.pack(side=tk.LEFT, padx=5)
+        obsValue = tk.Entry(row, width=30, font=("arial", 12))
+        obsValue.pack(side=tk.LEFT, padx=5, pady=5)
+
+        self.FieldsList.append([
+            titleValue,
+            pressDefaultTimeValue,
+            obsValue
+        ])        
 
         self.btnSave = tk.Button(self.NavWidget, text=f"{chr(0x1F4BE)} Save", command=self.saveItems, bg=self.primaryBGColor, fg=self.primaryBGButtom, font=("arial", 12))
         self.btnSave.pack(side=tk.RIGHT, pady=5, padx=20)
@@ -296,6 +325,10 @@ class App:
         pressTimeValue = tk.Entry(row, font=("Arial", 12), width=3)
         pressTimeValue.pack(side="left", padx=0)
 
+        onetap_var = tk.BooleanVar()
+        onetap = tk.Checkbutton(row, text="one tap", variable=onetap_var)
+        onetap.pack(side="left", padx=5)
+
         separator = tk.Label(row, text=f"    {chr(0x27F2)}", font=("Arial", 12), width=4)
         separator.pack(side="left", padx=0)
 
@@ -313,6 +346,7 @@ class App:
         self.FieldsList.append([
             keyValue,
             pressTimeValue,
+            onetap_var,
             checkbox_var,
             random1,
             random2
@@ -327,14 +361,16 @@ class App:
                     items.append({
                         "key": field[0].get(),
                         "pressed": field[1].get(),
-                        "random": field[2].get(),
-                        "min": field[3].get(),
-                        "max": field[4].get()
+                        "onetap": field[2].get(),
+                        "random": field[3].get(),
+                        "min": field[4].get(),
+                        "max": field[5].get()
                     })
 
             sendJson = {
                 "title": self.FieldsList[0][0].get(),
                 "timer_default": self.FieldsList[0][1].get(),
+                "notes": self.FieldsList[0][2].get(),
                 "keys": items
             }
         
@@ -356,14 +392,16 @@ class App:
                     items.append({
                         "key": field[0].get(),
                         "pressed": field[1].get(),
-                        "random": field[2].get(),
-                        "min": field[3].get(),
-                        "max": field[4].get()
+                        "onetap": field[2].get(),
+                        "random": field[3].get(),
+                        "min": field[4].get(),
+                        "max": field[5].get()
                     })
 
             sendJson = {
                 "title": self.FieldsList[0][0].get(),
                 "timer_default": self.FieldsList[0][1].get(),
+                "notes": self.FieldsList[0][2].get(),
                 "keys": items
             }           
             
@@ -401,7 +439,15 @@ class App:
         print(self.robotObj)
         interval = 0.1
 
+        
+        # if self.cc == 0:
+        #     print('-> vai iniciar em 10 segundos')
+        #     time.sleep(10)
+
         for k in self.robotObj['data']['keys']:
+            # self.cc = self.cc + 1
+            #pyautogui.click(50, 100)
+
             timer_default = 10
 
             if self.robotObj['data']['timer_default']:
@@ -409,28 +455,62 @@ class App:
 
             if k['pressed']:
                 timer_default = k['pressed']
+
+            if k['random'] and k['min'] and k['max']:
+                timer_default = self.rand(int(k['min']), int(k['max']))
+                print(f"the key is {k['key']} an the random number is {int(timer_default)}")
            
             print(f"inicio em {datetime.now().minute}:{datetime.now().second}")
             
-            if int(timer_default) <= 1:
-                print('-----> ', timer_default)
-                keyboard.press(k['key'])
-            else:
-                startTime = time.time()
-                while time.time() - startTime < int(timer_default):
-                    if not self.robotLoop:
-                        break
+            if not k['key']:
+                continue
 
+            print(k['key'])
+            if k['key'] == 'click':
+                rt1 = tk.Tk()
+                width = rt1.winfo_screenwidth()
+                height = rt1.winfo_screenheight()
+                print(f"Largura da tela: {width} pixels")
+                print(f"Altura da tela: {height} pixels")
+
+                if k['random']:
+                    m1 = int(self.rand(0,width - 1))
+                    m2 = int(self.rand(50,height -50))
+                else:
+                    m1 = 50
+                    m2 = 50
+                print(f'em 10 segundos o click random {m1} e {m2} vai acontecer')
+                pyautogui.click(m1, m2, duration=15)
+            else:
+                if k['onetap']:
+                    print('-----> ONE TAP')
+                    time.sleep(2)
                     keyboard.press(k['key'])
                     time.sleep(interval)
                     keyboard.release(k['key'])
+                    time.sleep(timer_default)
+                
+                else:
+                    startTime = time.time()
+                    while time.time() - startTime < int(timer_default):
+                        if not self.robotLoop:
+                            break
 
-                print(f"Fim em {datetime.now().minute}:{datetime.now().second}")
+                        keyboard.press(k['key'])
+                        time.sleep(interval)
+                        keyboard.release(k['key'])
 
-            #print(f"pressionando a tecla {k['key']} po {timer_default} segundos")
+                    print(f"Fim em {datetime.now().minute}:{datetime.now().second}")
+
             
+            #print(f"pressionando a tecla {k['key']} po {timer_default} segundos")
 
         print(' * - * - * - * - * - * - * - * - * - * - * - * ')
+    
+    def rand(self, minimo, maximo):
+        return random.uniform(minimo, maximo)
+            
+
 
         
         
