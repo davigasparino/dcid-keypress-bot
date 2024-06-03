@@ -4,7 +4,7 @@
         "data": {
             "title": "Fortnite LEGO",
             "timer_default": "10",
-            "notes": "22.5, 27.8 - 28.1",
+            "notes": "[22.5, 27.8],[32.7, 37.6][47.8, 52.6]",
             "keys": [
                 {
                     "key": "w",
@@ -58,37 +58,11 @@
         }
     },
     {
-        "id": 28,
-        "data": {
-            "title": "Teste Click",
-            "timer_default": "",
-            "notes": "",
-            "keys": [
-                {
-                    "key": "click",
-                    "pressed": "",
-                    "onetap": false,
-                    "random": true,
-                    "min": "",
-                    "max": ""
-                },
-                {
-                    "key": "",
-                    "pressed": "",
-                    "onetap": false,
-                    "random": false,
-                    "min": "",
-                    "max": ""
-                }
-            ]
-        }
-    },
-    {
         "id": 53,
         "data": {
             "title": "Fortnite FESTIVAL",
             "timer_default": "20",
-            "notes": "28.2, 32.7",
+            "notes": "28.2, 32.7- 44.3, 47,8",
             "keys": [
                 {
                     "key": "w",
@@ -163,6 +137,172 @@
                     "max": "30"
                 }
             ]
+        }
+    },
+    {
+        "id": 62,
+        "data": {
+            "title": "1810-6975-4841",
+            "timer_default": "10",
+            "notes": "",
+            "keys": [
+                {
+                    "key": "w",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": true,
+                    "min": "5",
+                    "max": "15"
+                },
+                {
+                    "key": "d",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": true,
+                    "min": "5",
+                    "max": "15"
+                },
+                {
+                    "key": "click",
+                    "pressed": "",
+                    "onetap": true,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "s",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": true,
+                    "min": "5",
+                    "max": "15"
+                },
+                {
+                    "key": "a",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": true,
+                    "min": "5",
+                    "max": "15"
+                },
+                {
+                    "key": "space",
+                    "pressed": "",
+                    "onetap": true,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "click",
+                    "pressed": "",
+                    "onetap": true,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "w",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": true,
+                    "min": "5",
+                    "max": "15"
+                },
+                {
+                    "key": "d",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": false,
+                    "min": "5",
+                    "max": "15"
+                }
+            ]
+        }
+    },
+    {
+        "id": 63,
+        "data": {
+            "title": "3718-5072-7030",
+            "timer_default": "",
+            "notes": "",
+            "keys": []
+        }
+    },
+    {
+        "id": 67,
+        "data": {
+            "title": "0269-9106-3201",
+            "timer_default": "",
+            "notes": "39.2, 40",
+            "keys": [
+                {
+                    "key": "w",
+                    "pressed": "30",
+                    "onetap": false,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "a",
+                    "pressed": "4",
+                    "onetap": false,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "s",
+                    "pressed": "30",
+                    "onetap": false,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "d",
+                    "pressed": "4",
+                    "onetap": false,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "space",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "click",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                }
+            ]
+        }
+    },
+    {
+        "id": 68,
+        "data": {
+            "title": "4478-4765-7802",
+            "timer_default": "",
+            "notes": "",
+            "keys": []
         }
     }
 ]

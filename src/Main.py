@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 from classes.DataJson import DataJson as dj
 import json
 import time
@@ -260,7 +261,7 @@ class App:
                 random2
             ])
 
-        self.btnSave = tk.Button(self.NavWidget, text=f"{chr(0x274C)} Delete", bg="red", fg=self.primaryBGButtom, font=("arial", 12))
+        self.btnSave = tk.Button(self.NavWidget, text=f"{chr(0x274C)} Delete", command=lambda: self.deleteItems(obj['id']), bg="red", fg=self.primaryBGButtom, font=("arial", 12))
         self.btnSave.pack(side=tk.LEFT, pady=5, padx=2)
 
         self.btnSave = tk.Button(self.NavWidget, text=f"{chr(0x1F4BE)} Update", command=lambda: self.UpdateItems(obj['id']), bg=self.primaryBGColor, fg=self.primaryBGButtom, font=("arial", 12))
@@ -357,7 +358,7 @@ class App:
         try:      
             items = []
             for n, field in enumerate(self.FieldsList):
-                if n > 0:
+                if n > 0 and all(field):
                     items.append({
                         "key": field[0].get(),
                         "pressed": field[1].get(),
@@ -413,6 +414,25 @@ class App:
             self.setMessage("Procedure Update successfuly!")
         except Exception as e:
             raise e
+    
+    def deleteItems(self, id):
+
+        root = tk.Tk()
+        root.withdraw()  # Esconde a janela principal
+
+        user_confirmation = messagebox.askyesno("Confirmação", "Você tem certeza de que deseja deletar este item?")
+        if user_confirmation:
+
+            saveJson = dj()
+            try:      
+                saveJson.deleteItem(id)
+                self.FieldsList = []
+                self.viewProcedure()
+                self.setMessage("Procedure deleted successfuly!")
+            except Exception as e:
+                raise e
+        
+
         
     def Robot(self):
         self.robotLoop = True
@@ -467,6 +487,7 @@ class App:
 
             print(k['key'])
             if k['key'] == 'click':
+                print('-----> CLICK')
                 rt1 = tk.Tk()
                 width = rt1.winfo_screenwidth()
                 height = rt1.winfo_screenheight()
@@ -479,8 +500,8 @@ class App:
                 else:
                     m1 = 50
                     m2 = 50
-                print(f'em 10 segundos o click random {m1} e {m2} vai acontecer')
-                pyautogui.click(m1, m2, duration=15)
+                print(f'em 2 segundos o click random {m1} e {m2} vai acontecer')
+                pyautogui.click(m1, m2, duration=2)
             else:
                 if k['onetap']:
                     print('-----> ONE TAP')
@@ -488,7 +509,7 @@ class App:
                     keyboard.press(k['key'])
                     time.sleep(interval)
                     keyboard.release(k['key'])
-                    time.sleep(timer_default)
+                    time.sleep(int(timer_default))
                 
                 else:
                     startTime = time.time()

@@ -3,8 +3,8 @@ import os
 
 class DataJson:
 
-    jsonFile = os.path.join(os.getcwd()+'\data', 'profiles.json')
-    BD = os.path.join(os.getcwd()+'\data', 'bd.json')
+    jsonFile = os.path.join(os.getcwd()+'\data','profiles.json')
+    BD = os.path.join(os.getcwd()+'\data','bd.json')
 
     def ReadItems(self):
         with open(self.jsonFile, 'r') as arquivo_json:
@@ -53,3 +53,18 @@ class DataJson:
             json.dump(sequence, upSeq, indent=4)
 
         return sequence[0]['sequence']
+
+    def deleteItem(self, id):
+        user_input = input("Você tem certeza de que deseja deletar este item? (s/n): ")
+        if user_input.lower() == 's':
+
+            with open(self.jsonFile, 'r') as json_file:
+                data = json.load(json_file)
+            
+            for i in range(len(data)):
+                if data[i]['id'] == int(id):
+                    data.pop(i)
+                    break
+
+            with open(self.jsonFile, 'w') as arquivo_json:
+                json.dump(data, arquivo_json, indent=4)
