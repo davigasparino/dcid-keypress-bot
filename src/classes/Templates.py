@@ -2,21 +2,21 @@ import customtkinter as ctk
 
 class Templates:
     
-    bgSecondary = "#333"
+    bgSecondary = "transparent"
     tpH = 35
     tpMD = 355
     ftH = 50
     padding = 20
-    sidebarWidht = 180
-    centerWidht = 500
-    rightWidht = 240
+    sidebarWidht = 200
+    centerWidht = 520
+    rightWidht = 200
 
     def __init__(self, root):
         self.root = root
         self.root.title("DCID Keypress BOT")
         self.root.geometry("1000x520")
         self.root.resizable(False, False) 
-        
+
         mode = ctk.get_appearance_mode()
 
         if mode == 'Light':
@@ -132,5 +132,28 @@ class Templates:
             y=self.padding+self.tpH+self.padding+self.tpMD+self.padding
         )
 
+    def setTitle(self, title):
+        self.clearFrame(self.centerTP)
+        theTitle = ctk.CTkLabel(self.centerTP, text=title, font=("Arial", 22), width=self.centerWidht)
+        theTitle.pack(padx=0)
+
     def Message(self, text):
         ctk.CTkLabel(self.msg, text=text, font=("Arial", 12, "bold")).pack(pady=0, padx=0)
+
+    def clearAllFrames(self):
+        self.clearFrame(self.centerTP)
+        self.clearFrame(self.rightTP)
+        self.clearFrame(self.rightMD)
+        self.clearFrame(self.rightFT)
+        self.clearFrame(self.containerFT)
+        self.clearFrame(self.containerMD)
+    
+    def clearContainers(self):
+        self.clearFrame(self.rightMD)
+        self.clearFrame(self.rightFT)
+        self.clearFrame(self.containerFT)
+        self.clearFrame(self.containerMD)
+
+    def clearFrame(self, frame):
+        for widget in frame.winfo_children():
+            widget.destroy()
