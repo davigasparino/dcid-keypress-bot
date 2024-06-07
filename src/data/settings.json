@@ -1,0 +1,43 @@
+{
+    "sys": {
+        "setrecursionlimit": 1500000
+    },
+    "themes": {
+        "dark": {
+            "primaryColor": "#",
+            "secondaryColor": "#",
+            "bgPrimary": "#",
+            "bgSecondary": "#"
+        },
+        "light": {
+            "primaryColor": "#",
+            "secondaryColor": "#",
+            "bgPrimary": "#",
+            "bgSecondary": "#"
+        },
+        "blue": {
+            "primaryColor": "#",
+            "secondaryColor": "#",
+            "bgPrimary": "#",
+            "bgSecondary": "#"
+        }, 
+        "red": {
+            "primaryColor": "#",
+            "secondaryColor": "#",
+            "bgPrimary": "#",
+            "bgSecondary": "#"
+        },
+        "purple": {
+            "primaryColor": "#",
+            "secondaryColor": "#",
+            "bgPrimary": "#",
+            "bgSecondary": "#"
+        },
+        "green": {
+            "primaryColor": "#",
+            "secondaryColor": "#",
+            "bgPrimary": "#",
+            "bgSecondary": "#"
+        }
+    }
+}
