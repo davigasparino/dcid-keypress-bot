@@ -7,9 +7,9 @@ class Templates:
     tpMD = 355
     ftH = 50
     padding = 20
-    sidebarWidht = 200
-    centerWidht = 520
-    rightWidht = 200
+    sidebarWidth = 200
+    centerWidth = 520
+    rightWidth = 200
 
     def __init__(self, root):
         self.root = root
@@ -24,7 +24,7 @@ class Templates:
         
         self.brandTp = ctk.CTkFrame(
             self.root, 
-            width=self.sidebarWidht,
+            width=self.sidebarWidth,
             height=self.tpH,
             fg_color=self.bgSecondary
         )
@@ -35,40 +35,40 @@ class Templates:
 
         self.centerTP = ctk.CTkFrame(
             self.root,
-            width=self.centerWidht,
+            width=self.centerWidth,
             height=self.tpH,
             fg_color=self.bgSecondary
         )
         self.centerTP.place(
-            x=self.padding+self.sidebarWidht+self.padding, 
+            x=self.padding+self.sidebarWidth+self.padding, 
             y=self.padding
         )
 
         self.msg = ctk.CTkFrame(
             self.root,
-            width=self.centerWidht,
+            width=self.centerWidth,
             height=12,
             fg_color="transparent"
         )
         self.msg.place(
-            x=self.padding+self.sidebarWidht+self.padding, 
+            x=self.padding+self.sidebarWidth+self.padding, 
             y=self.padding+32
         )
 
         self.rightTP = ctk.CTkFrame(
             self.root,
-            width=self.rightWidht,
+            width=self.rightWidth,
             height=self.tpH,
             fg_color=self.bgSecondary
         )
         self.rightTP.place(
-            x=self.padding+self.sidebarWidht+self.padding+self.centerWidht+self.padding,  
+            x=self.padding+self.sidebarWidth+self.padding+self.centerWidth+self.padding,  
             y=self.padding
         )
 
         self.sidebarMD = ctk.CTkFrame(
             self.root,
-            width=self.sidebarWidht,
+            width=self.sidebarWidth,
             height=self.tpMD,
             fg_color=self.bgSecondary
         )
@@ -79,29 +79,29 @@ class Templates:
 
         self.rightMD = ctk.CTkFrame(
             self.root,
-            width=self.rightWidht,
+            width=self.rightWidth,
             height=self.tpMD,
             fg_color=self.bgSecondary
         )
         self.rightMD.place(
-            x=self.padding+self.sidebarWidht+self.padding+self.centerWidht+self.padding, 
+            x=self.padding+self.sidebarWidth+self.padding+self.centerWidth+self.padding, 
             y=self.padding+self.tpH+self.padding
         )
 
         self.containerMD = ctk.CTkScrollableFrame(
             self.root,
-            width=self.centerWidht-23,
+            width=self.centerWidth-23,
             height=self.tpMD-12,
             fg_color=self.bgSecondary
         )
         self.containerMD.place(
-            x=self.padding+self.sidebarWidht+self.padding, 
+            x=self.padding+self.sidebarWidth+self.padding, 
             y=self.padding+self.tpH+self.padding
         )
 
         self.sidebarFT = ctk.CTkFrame(
             self.root,
-            width=self.sidebarWidht,
+            width=self.sidebarWidth,
             height=self.ftH,
             fg_color=self.bgSecondary
         )
@@ -112,29 +112,29 @@ class Templates:
 
         self.containerFT = ctk.CTkFrame(
             self.root,
-            width=self.centerWidht,
+            width=self.centerWidth,
             height=self.ftH,
             fg_color=self.bgSecondary
         )
         self.containerFT.place(
-            x=self.padding+self.sidebarWidht+self.padding, 
+            x=self.padding+self.sidebarWidth+self.padding, 
             y=self.padding+self.tpH+self.padding+self.tpMD+self.padding
         )
 
         self.rightFT = ctk.CTkFrame(
             self.root,
-            width=self.rightWidht,
+            width=self.rightWidth,
             height=self.ftH,
             fg_color=self.bgSecondary
         )
         self.rightFT.place(
-            x=self.padding+self.sidebarWidht+self.padding+self.centerWidht+self.padding,   
+            x=self.padding+self.sidebarWidth+self.padding+self.centerWidth+self.padding,   
             y=self.padding+self.tpH+self.padding+self.tpMD+self.padding
         )
 
     def setTitle(self, title):
         self.clearFrame(self.centerTP)
-        theTitle = ctk.CTkLabel(self.centerTP, text=title, font=("Arial", 22), width=self.centerWidht)
+        theTitle = ctk.CTkLabel(self.centerTP, text=title, font=("Arial", 22), width=self.centerWidth)
         theTitle.pack(padx=0)
 
     def Message(self, text):

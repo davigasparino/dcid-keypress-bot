@@ -11,6 +11,12 @@ class DataJson:
             dados_json = json.load(arquivo_json)
         return dados_json
 
+    def Save(self, items, id = 0):
+        if id > 0:
+            self.updateItem(id, items)
+        else:
+            self.insertItem(self)
+            
 
     def insertItem(self, items):
         # Leitura do arquivo JSON
