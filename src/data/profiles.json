@@ -304,5 +304,73 @@
             "notes": "",
             "keys": []
         }
+    },
+    {
+        "id": 80,
+        "data": {
+            "title": "um teste",
+            "timer_default": "5",
+            "notes": "teste\n",
+            "keys": [
+                {
+                    "key": "enter",
+                    "pressed": "",
+                    "onetap": true,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "s",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "enter",
+                    "pressed": "",
+                    "onetap": true,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "r",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "enter",
+                    "pressed": "",
+                    "onetap": true,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                }
+            ]
+        }
+    },
+    {
+        "id": 81,
+        "data": {
+            "title": "CLICK BUGS",
+            "timer_default": "",
+            "notes": "\n",
+            "keys": [
+                {
+                    "key": "click",
+                    "pressed": "",
+                    "onetap": true,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                }
+            ]
+        }
     }
 ]

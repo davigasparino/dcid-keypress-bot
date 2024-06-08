@@ -3,8 +3,8 @@ import os
 
 class DataJson:
 
-    jsonFile = os.path.join(os.getcwd()+'\data','profiles.json')
-    BD = os.path.join(os.getcwd()+'\data','bd.json')
+    jsonFile = os.path.join(os.getcwd()+'/data','profiles.json')
+    BD = os.path.join(os.getcwd()+'/data','bd.json')
 
     def ReadItems(self):
         with open(self.jsonFile, 'r') as arquivo_json:
@@ -13,9 +13,9 @@ class DataJson:
 
     def Save(self, items, id = 0):
         if id > 0:
-            self.updateItem(id, items)
+            self.updateItem(items, id)
         else:
-            self.insertItem(self)
+            self.insertItem(items)
             
 
     def insertItem(self, items):
@@ -36,7 +36,7 @@ class DataJson:
             # Gravando as modificações no arquivo
             json.dump(dados_json, arquivo_json_escrita, indent=4)
 
-    def updateItem(self, id, items):
+    def updateItem(self, items, id):
     
         # Carregue o conteúdo do JSON em um objeto Python
         with open(self.jsonFile, 'r') as arquivo_json:

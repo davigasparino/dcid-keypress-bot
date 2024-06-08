@@ -9,6 +9,7 @@ import random
 import keyboard
 import pyautogui
 from datetime import datetime
+from pynput import keyboard as pyk
 
 class App:
     primaryBGColor = "#0055aa"
@@ -21,6 +22,8 @@ class App:
         self.robotObj = []
         self.robotCount = 0
         sys.setrecursionlimit(1500000)
+        
+        
         #self.tp.Message("Mensagem que va iaparecer na tela")
     
     def menu(self):
@@ -62,7 +65,8 @@ class App:
         btn.pack(side="right")
 
         getJson = dj()
-        
+
+
         for n, d in enumerate(getJson.ReadItems()):
             row = ctk.CTkFrame(self.tp.containerMD)
             row.pack(fill="x", pady=5)
@@ -90,7 +94,7 @@ class App:
         self.tp.clearContainers()
 
         if obj:
-            ID = obj['id']
+            ID = int(obj['id'])
             self.tp.setTitle(obj['data']['title'])
         else:
             ID = 0
@@ -301,6 +305,7 @@ class App:
         ])
 
     def saveItems(self, id = 0): 
+        
         try:      
             items = []
             for n, field in enumerate(self.FieldsList):
@@ -364,6 +369,10 @@ class App:
             self.robotCount += 1
             self.RobotStart()
     
+    def on_key_release(self, key):
+        if key == pyk.Key.esc:
+            self.StopTheRobot()
+
     def StopTheRobot(self):
         self.robotCount = 0
         self.robotLoop = False
@@ -414,11 +423,9 @@ class App:
                 else:
                     if key['onetap']:
                         print('-----> ONE TAP')
-                        time.sleep(2)
                         keyboard.press(key['key'])
                         time.sleep(interval)
                         keyboard.release(key['key'])
-                        time.sleep(int(timer_default))
                     
                     else:
                         startTime = time.time()
@@ -440,4 +447,10 @@ class App:
 if __name__ == "__main__":
     root = ctk.CTk()
     app = App(root)
+
+    listener = pyk.Listener(on_release=app.on_key_release)
+    listener.start()
+
     root.mainloop()
+
+

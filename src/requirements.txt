@@ -2,4 +2,5 @@ configparser,
 keyboard,
 pyautogui,
 messagebox,
-threading
+threading,
+pynput
