@@ -1,31 +1,20 @@
 import customtkinter as ctk
-from components.View import View as vw 
-#from components.Template import Template as tp 
+from components.Layout import Layout as ly 
+from components.Procedures.Procedure import Procedure
 class App:
 
     def __init__(self, root):
-        self.vw = vw(root)
+        self.ly = ly(root)
         self.menu()
 
     def menu(self):
         paddingY = 4
+        p = Procedure(self.ly)
         ctk.CTkButton(
-            self.vw.tp.sidebarMD,
-            width=self.vw.tp.sidebarWidth,
-            text="Principal",
-            command=lambda: self.vw.Principal()
-        ).pack(pady=paddingY)
-        ctk.CTkButton(
-            self.vw.tp.sidebarMD,
-            width=self.vw.tp.sidebarWidth,
+            self.ly.sidebarMD,
+            width=self.ly.sidebarWidth,
             text="Procedures",
-            command=lambda: self.vw.Procedures()
-        ).pack(pady=paddingY)
-        ctk.CTkButton(
-            self.vw.tp.sidebarMD,
-            width=self.vw.tp.sidebarWidth,
-            text="Settings",
-            command=lambda: self.vw.Settings()
+            command=lambda: p.List()
         ).pack(pady=paddingY)
 
     

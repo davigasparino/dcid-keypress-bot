@@ -1,6 +1,6 @@
 import customtkinter as ctk
 
-class Templates:
+class Layout:
     
     bgSecondary = "transparent"
     tpH = 35
@@ -157,3 +157,23 @@ class Templates:
     def clearFrame(self, frame):
         for widget in frame.winfo_children():
             widget.destroy()
+    
+    def Renderer(self, obj):
+        self.clearContainers()
+
+        if obj['title']:
+            self.setTitle(obj['title'])
+
+        if obj['rightMD']:
+            self.setRightMD(obj['rightMD'])
+    
+    def setRightMD(self, obj):
+        if obj['type'] == 'button':
+            btn = ctk.CTkButton(
+                self.rightMD, 
+                text=obj['text'], 
+                font=("arial", 14), 
+                width=self.rightWidth
+            )
+            btn.pack()
+
