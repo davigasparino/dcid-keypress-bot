@@ -20,5 +20,8 @@
         "commandCenter.border": "#f9f9f999"
     },
     "peacock.color": "#380350",
-    "cflint.enabled": false
+    "cflint.enabled": false,
+    "python.analysis.extraPaths": [
+        "./src/class"
+    ]
 }

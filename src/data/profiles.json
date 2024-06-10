@@ -2,9 +2,9 @@
     {
         "id": 19,
         "data": {
-            "title": "Fortnite LEGO",
+            "title": "F LEGO",
             "timer_default": "10",
-            "notes": "[22.5, 27.8],[32.7, 37.6][47.8, 52.6][67,72.4][78.3, 83.6]",
+            "notes": "[22.5, 27.8],[32.7, 37.6][47.8, 52.6][67,72.4][78.3, 83.6]\n",
             "keys": [
                 {
                     "key": "w",
@@ -60,9 +60,9 @@
     {
         "id": 53,
         "data": {
-            "title": "Fortnite FESTIVAL",
+            "title": "F FESTIVAL",
             "timer_default": "20",
-            "notes": "28.2, 32.7- 44.3, 47,8 - 52.6, 60",
+            "notes": "28.2, 32.7- 44.3, 47,8 - 52.6, 60\n",
             "keys": [
                 {
                     "key": "w",

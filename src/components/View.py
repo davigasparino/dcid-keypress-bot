@@ -1,5 +1,4 @@
 import customtkinter as ctk
-from classes.Templates import Templates as tp
 from classes.DataJson import DataJson as dj
 from tkinter import messagebox
 import threading
@@ -10,47 +9,35 @@ import keyboard
 import pyautogui
 from datetime import datetime
 
-class App:
-    primaryBGColor = "#0055aa"
-    FieldsList = []
+from components.Template import Template as tp 
+
+class View(tp):
 
     def __init__(self, root):
         self.tp = tp(root)
-        self.menu()
         self.robotLoop = False
         self.robotObj = []
         self.robotCount = 0
-        sys.setrecursionlimit(1500000)
-        #self.tp.Message("Mensagem que va iaparecer na tela")
-    
-    def menu(self):
-        paddingY = 4
-        ctk.CTkButton(
-            self.tp.sidebarMD,
-            width=self.tp.sidebarWidth,
-            text="Principal",
-            command=lambda: self.Principal()
-        ).pack(pady=paddingY)
-        ctk.CTkButton(
-            self.tp.sidebarMD,
-            width=self.tp.sidebarWidth,
-            text="Procedures",
-            command=lambda: self.Procedures()
-        ).pack(pady=paddingY)
-        ctk.CTkButton(
-            self.tp.sidebarMD,
-            width=self.tp.sidebarWidth,
-            text="Settings",
-            command=lambda: self.Settings()
-        ).pack(pady=paddingY)
 
+        self.FieldsList = []
+    
     def Principal(self):
-        self.tp.clearContainers()
-        self.tp.setTitle("Principal")
+        self.clearContainers()
+        self.setTitle("Principal")
 
     def Procedures(self):
         self.tp.clearContainers()
         self.tp.setTitle("Procedures")
+
+    def Settings(self):
+        self.tp.clearContainers()
+        self.tp.setTitle("Settings")
+
+    def Procedures(self):
+        self.tp.clearContainers()
+        self.tp.setTitle("Procedures")
+
+        print('self.rightWidth => ', self.tp.rightWidth)
 
         btn = ctk.CTkButton(
             self.tp.rightMD, 
@@ -62,7 +49,7 @@ class App:
         btn.pack(side="right")
 
         getJson = dj()
-        
+
         for n, d in enumerate(getJson.ReadItems()):
             row = ctk.CTkFrame(self.tp.containerMD)
             row.pack(fill="x", pady=5)
@@ -245,10 +232,6 @@ class App:
             font=("arial", 12, "bold")
         )
         self.btnNew.pack(side=ctk.RIGHT, pady=0, padx=0)
-
-        
-
-        #chr(0x26A0)
     
     def NewRow(self):
         row = ctk.CTkFrame(self.tp.containerMD)
@@ -329,7 +312,7 @@ class App:
             self.tp.Message("New procedure included successfuly!")
         except Exception as e:
             raise e
-    
+        
     def deleteItems(self, id):
         root = ctk.CTk()
         root.withdraw()  # Esconde a janela principal
@@ -436,8 +419,3 @@ class App:
     
     def rand(self, minimo, maximo):
         return random.uniform(minimo, maximo)
-        
-if __name__ == "__main__":
-    root = ctk.CTk()
-    app = App(root)
-    root.mainloop()
