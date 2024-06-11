@@ -7,12 +7,13 @@ import customtkinter as ctk
 from datetime import datetime
 
 class Robot:
-    robotLoop = False
     robotCount = 0
+    robotObj = []
+    robotLoop = False
 
-    def __init__(self, robotObj):
-        self.robotObj = robotObj
-    
+    def __init__(sel):
+        return       
+            
     def Robot(self):
         self.robotLoop = True
         self.RobotStart()

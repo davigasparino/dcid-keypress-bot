@@ -1,16 +1,15 @@
 from components.DataJson import DataJson as dj
 import customtkinter as ctk
 from tkinter import messagebox
-from components.Robot.Robot import Robot 
 import threading
 
 
 class Procedure:
     FieldsList = []
 
-    def __init__(self, layout):
-        self.ly = layout
-        return
+    def __init__(self, obj):
+        self.ly = obj.ly
+        self.robot = obj.rbt
     
     def List(self):
         self.ly.clearContainers()
@@ -48,8 +47,6 @@ class Procedure:
         return lambda: self.ViewItem(d)
 
     def ViewItem(self, obj = []): 
-        Rbt = Robot(obj)    
-
         self.ly.clearContainers()
 
         if obj:
@@ -173,6 +170,7 @@ class Procedure:
         self.btnSave.pack(side=ctk.RIGHT, pady=0, padx=3)
 
         if obj:
+            self.robot.robotObj = obj
             self.btnSave = ctk.CTkButton(
                 self.ly.rightFT, 
                 text=f"{chr(0x274C)} Del",
@@ -187,7 +185,7 @@ class Procedure:
                 self.ly.rightMD, 
                 text=f"{chr(0x23F9)} Stop",
                 width=(self.ly.rightWidth/2)-8,
-                command=lambda: Rbt.StopTheRobot()
+                command=lambda: self.robot.StopTheRobot()
             )
             self.btnSave.pack(side=ctk.RIGHT, pady=0, padx=4)
             
@@ -196,7 +194,7 @@ class Procedure:
                 text=f"{chr(0x23F5)} Play",
                 width=(self.ly.rightWidth/2)-8,
                 command=lambda: threading.Thread(
-                    target=lambda: Rbt.Robot()
+                    target=lambda: self.robot.Robot()
                 ).start(),
             )
             self.btnSave.pack(side=ctk.RIGHT, pady=0, padx=4)
@@ -208,10 +206,6 @@ class Procedure:
             font=("arial", 12, "bold")
         )
         self.btnNew.pack(side=ctk.RIGHT, pady=0, padx=0)
-
-        
-
-        #chr(0x26A0)
     
     def NewRow(self):
         row = ctk.CTkFrame(self.ly.containerMD)
@@ -289,7 +283,7 @@ class Procedure:
 
             self.FieldsList = []
             self.List()
-            self.ly.Message("New procedure included successfuly!")
+            self.ly.Message("New procedure included successfully!")
         except Exception as e:
             raise e
     
@@ -304,7 +298,7 @@ class Procedure:
                 saveJson.deleteItem(id)
                 self.FieldsList = []
                 self.List()
-                self.ly.Message("New procedure included successfuly!")
+                self.ly.Message("Procedure removed successfully!")
             except Exception as e:
                 raise e
     

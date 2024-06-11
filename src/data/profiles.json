@@ -4,7 +4,7 @@
         "data": {
             "title": "F LEGO",
             "timer_default": "10",
-            "notes": "[22.5, 27.8],[32.7, 37.6][47.8, 52.6][67,72.4][78.3, 83.6]\n",
+            "notes": "[22.5, 27.8],[32.7, 37.6][47.8, 52.6][67,72.4][78.3, 83.6]\n\n\n",
             "keys": [
                 {
                     "key": "w",
@@ -49,7 +49,7 @@
                 {
                     "key": "click",
                     "pressed": "1",
-                    "onetap": false,
+                    "onetap": true,
                     "random": true,
                     "min": "",
                     "max": ""
@@ -303,6 +303,56 @@
             "timer_default": "",
             "notes": "",
             "keys": []
+        }
+    },
+    {
+        "id": 85,
+        "data": {
+            "title": "Testes",
+            "timer_default": "3",
+            "notes": "alguns testes\n\n\n\n\n\n\n",
+            "keys": [
+                {
+                    "key": "",
+                    "pressed": "10",
+                    "onetap": false,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "enter",
+                    "pressed": "",
+                    "onetap": true,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "s",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": true,
+                    "min": "0",
+                    "max": "10"
+                },
+                {
+                    "key": "enter",
+                    "pressed": "",
+                    "onetap": true,
+                    "random": false,
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "w",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": true,
+                    "min": "0",
+                    "max": "10"
+                }
+            ]
         }
     }
 ]
