@@ -258,35 +258,112 @@ class Procedure:
         ])
 
     def saveItems(self, id = 0): 
+        validate = []
         try:      
             items = []
             for n, field in enumerate(self.FieldsList):
                 if n > 0 and all(field):
+
+                    try:
+                        Key = field[0].get()
+                    except Exception as e:
+                        print("Key => ", e)
+                        validate.append(e)
+                        Key = ""
+
+                    try:
+                        Pressed = field[1].get()
+                    except Exception as e:
+                        print("Pressed => ", e)
+                        validate.append(e)
+                        Pressed = ""
+                    
+                    try:
+                        onetap = field[2].get()
+                    except Exception as e:
+                        print("onetap => ", e)
+                        validate.append(e)
+                        onetap = ""
+                    
+                    try:
+                        random = field[3].get()
+                    except Exception as e:
+                        print("random => ", e)
+                        validate.append(e)
+                        random = ""
+                    
+                    try:
+                        min = field[4].get()
+                    except Exception as e:
+                        print("min => ", e)
+                        validate.append(e)
+                        min = ""
+                    
+                    try:
+                        max = field[5].get()
+                    except Exception as e:
+                        print("max => ", e)
+                        validate.append(e)
+                        max = ""
+
                     items.append({
-                        "key": field[0].get(),
-                        "pressed": field[1].get(),
-                        "onetap": field[2].get(),
-                        "random": field[3].get(),
-                        "min": field[4].get(),
-                        "max": field[5].get()
+                        "key": Key,
+                        "pressed": Pressed,
+                        "onetap": onetap,
+                        "random": random,
+                        "min": min,
+                        "max": max
                     })
 
+            try:
+                Title = self.FieldsList[0][0].get()
+            except Exception as e:
+                print("Title => ", e)
+                validate.append(e)
+                Title = ""
+
+            try:
+                timer_default = self.FieldsList[0][1].get()
+            except Exception as e:
+                print("timer_default => ", e)
+                validate.append(e)
+                timer_default = ""
+
+            try:
+                notes = self.FieldsList[0][2].get("1.0", "end")
+            except Exception as e:
+                print("notes => ", e)
+                validate.append(e)
+                notes = ""
+
             sendJson = {
-                "title": self.FieldsList[0][0].get(),
-                "timer_default": self.FieldsList[0][1].get(),
-                "notes": self.FieldsList[0][2].get("1.0", "end"),
+                "title": Title,
+                "timer_default": timer_default,
+                "notes": notes,
                 "keys": items
             }
-        
-            saveJson = dj()
-            saveJson.Save(sendJson, int(id))
 
-            self.FieldsList = []
-            self.List()
-            self.ly.Message("New procedure included successfully!")
+            if len(validate) == 0:
+                saveJson = dj()
+                saveJson.Save(sendJson, int(id))
+
+                self.FieldsList = []
+                self.List()
+                self.ly.Message("New procedure included successfully!")
+            else:
+                self.ly.Message("An error has occurred. Try later!")
+            
         except Exception as e:
             raise e
     
+    def checkExists(item):
+        if item is None or not hasattr(item, "get"):
+            item = ""
+        else:
+            item = item.get()
+
+        return item
+
     def deleteItems(self, id):
         root = ctk.CTk()
         root.withdraw()  # Esconde a janela principal

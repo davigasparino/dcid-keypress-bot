@@ -4,7 +4,7 @@
         "data": {
             "title": "F LEGO",
             "timer_default": "10",
-            "notes": "[22.5, 27.8],[32.7, 37.6][47.8, 52.6][67,72.4][78.3, 83.6]\n\n\n",
+            "notes": "[22.5, 27.8],[32.7, 37.6][47.8, 52.6][67,72.4][78.3, 83.6]\n\n\n\n\n\n\n",
             "keys": [
                 {
                     "key": "w",
@@ -62,7 +62,7 @@
         "data": {
             "title": "F FESTIVAL",
             "timer_default": "20",
-            "notes": "28.2, 32.7- 44.3, 47,8 - 52.6, 60\n",
+            "notes": "28.2, 32.7- 44.3, 47,8 - 52.6, 60\n\n\n\n\n\n\n\n",
             "keys": [
                 {
                     "key": "w",
@@ -144,7 +144,7 @@
         "data": {
             "title": "1810-6975-4841",
             "timer_default": "10",
-            "notes": "",
+            "notes": "\n",
             "keys": [
                 {
                     "key": "w",
@@ -301,40 +301,56 @@
         "data": {
             "title": "4478-4765-7802",
             "timer_default": "",
-            "notes": "",
+            "notes": "\n",
             "keys": []
         }
     },
     {
-        "id": 85,
+        "id": 89,
         "data": {
-            "title": "Testes",
-            "timer_default": "3",
-            "notes": "alguns testes\n\n\n\n\n\n\n",
+            "title": "10",
+            "timer_default": "10",
+            "notes": "4632645\t3\t74\t\t9\t9\t86\t0\t6579\t5\t4\t652\t51\t543\t74\t\t89\t5\t4\t32\t\t2\t\t6\t9\t\t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
             "keys": [
                 {
-                    "key": "",
-                    "pressed": "10",
+                    "key": "d",
+                    "pressed": "2",
                     "onetap": false,
-                    "random": false,
-                    "min": "",
-                    "max": ""
+                    "random": true,
+                    "min": "1",
+                    "max": "10"
+                },
+                {
+                    "key": "backspace",
+                    "pressed": "4",
+                    "onetap": false,
+                    "random": true,
+                    "min": "1",
+                    "max": "8"
                 },
                 {
                     "key": "enter",
-                    "pressed": "",
+                    "pressed": "1",
                     "onetap": true,
                     "random": false,
-                    "min": "",
-                    "max": ""
+                    "min": "1",
+                    "max": "10"
                 },
                 {
                     "key": "s",
                     "pressed": "",
                     "onetap": false,
                     "random": true,
-                    "min": "0",
+                    "min": "1",
                     "max": "10"
+                },
+                {
+                    "key": "backspace",
+                    "pressed": "",
+                    "onetap": false,
+                    "random": true,
+                    "min": "1",
+                    "max": "8"
                 },
                 {
                     "key": "enter",
@@ -343,14 +359,6 @@
                     "random": false,
                     "min": "",
                     "max": ""
-                },
-                {
-                    "key": "w",
-                    "pressed": "",
-                    "onetap": false,
-                    "random": true,
-                    "min": "0",
-                    "max": "10"
                 }
             ]
         }
