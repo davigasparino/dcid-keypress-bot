@@ -16,7 +16,6 @@ class DataJson:
             self.updateItem(items, id)
         else:
             self.insertItem(items)
-            
 
     def insertItem(self, items):
         # Leitura do arquivo JSON

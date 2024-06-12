@@ -1,4 +1,6 @@
 import customtkinter as ctk
+import time
+import threading
 
 class Layout:
     
@@ -139,6 +141,9 @@ class Layout:
 
     def Message(self, text):
         ctk.CTkLabel(self.msg, text=text, font=("Arial", 12, "bold")).pack(pady=0, padx=0)
+        threading.Thread(
+            target=lambda: self.clearFrame(self.msg, 10)
+        ).start()
 
     def clearAllFrames(self):
         self.clearFrame(self.centerTP)
@@ -154,7 +159,10 @@ class Layout:
         self.clearFrame(self.containerFT)
         self.clearFrame(self.containerMD)
 
-    def clearFrame(self, frame):
+    def clearFrame(self, frame, t = 0):
+        if t > 0:
+            time.sleep(t)
+
         for widget in frame.winfo_children():
             widget.destroy()
     
