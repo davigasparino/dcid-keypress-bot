@@ -1,4 +1,5 @@
 from components.DataJson import DataJson as dj
+from components.Logs import Logs 
 import customtkinter as ctk
 from tkinter import messagebox
 import threading
@@ -10,6 +11,7 @@ class Procedure:
     def __init__(self, obj):
         self.ly = obj.ly
         self.robot = obj.rbt
+        self.log = Logs()
     
     def List(self):
         self.ly.clearContainers()
@@ -267,42 +269,42 @@ class Procedure:
                     try:
                         Key = field[0].get()
                     except Exception as e:
-                        print("Key => ", e)
+                        self.log.addLog(e)
                         validate.append(e)
                         Key = ""
 
                     try:
                         Pressed = field[1].get()
                     except Exception as e:
-                        print("Pressed => ", e)
+                        self.log.addLog(e)
                         validate.append(e)
                         Pressed = ""
                     
                     try:
                         onetap = field[2].get()
                     except Exception as e:
-                        print("onetap => ", e)
+                        self.log.addLog(e)
                         validate.append(e)
                         onetap = ""
                     
                     try:
                         random = field[3].get()
                     except Exception as e:
-                        print("random => ", e)
+                        self.log.addLog(e)
                         validate.append(e)
                         random = ""
                     
                     try:
                         min = field[4].get()
                     except Exception as e:
-                        print("min => ", e)
+                        self.log.addLog(e)
                         validate.append(e)
                         min = ""
                     
                     try:
                         max = field[5].get()
                     except Exception as e:
-                        print("max => ", e)
+                        self.log.addLog(e)
                         validate.append(e)
                         max = ""
 
@@ -318,21 +320,21 @@ class Procedure:
             try:
                 Title = self.FieldsList[0][0].get()
             except Exception as e:
-                print("Title => ", e)
+                self.log.addLog(e)
                 validate.append(e)
                 Title = ""
 
             try:
                 timer_default = self.FieldsList[0][1].get()
             except Exception as e:
-                print("timer_default => ", e)
+                self.log.addLog(e)
                 validate.append(e)
                 timer_default = ""
 
             try:
                 notes = self.FieldsList[0][2].get("1.0", "end")
             except Exception as e:
-                print("notes => ", e)
+                self.log.addLog(e)
                 validate.append(e)
                 notes = ""
 
@@ -349,12 +351,13 @@ class Procedure:
 
                 self.FieldsList = []
                 self.List()
-                self.ly.Message("New procedure included successfully!")
+                feedback = "New procedure included successfully!"
             else:
-                self.ly.Message("An error has occurred. Try later!")
+                feedback = "An error has occurred. Try later!"
             
+            self.ly.Message(feedback)
         except Exception as e:
-            raise e
+            self.log.addLog(e)
     
     def checkExists(item):
         if item is None or not hasattr(item, "get"):
@@ -377,6 +380,6 @@ class Procedure:
                 self.List()
                 self.ly.Message("Procedure removed successfully!")
             except Exception as e:
-                raise e
+                self.log.addLog(e)
     
     
