@@ -265,7 +265,6 @@ class Procedure:
             items = []
             for n, field in enumerate(self.FieldsList):
                 if n > 0 and all(field):
-
                     try:
                         Key = field[0].get()
                     except Exception as e:
@@ -351,11 +350,11 @@ class Procedure:
 
                 self.FieldsList = []
                 self.List()
-                feedback = "New procedure included successfully!"
+                feedback = ["New procedure included successfully!", "success"]
             else:
-                feedback = "An error has occurred. Try later!"
+                feedback = ["An error has occurred. Try later!", "danger"]
             
-            self.ly.Message(feedback)
+            self.ly.Message(feedback[0], feedback[1])
         except Exception as e:
             self.log.addLog(e)
     
@@ -378,7 +377,7 @@ class Procedure:
                 saveJson.deleteItem(id)
                 self.FieldsList = []
                 self.List()
-                self.ly.Message("Procedure removed successfully!")
+                self.ly.Message("Procedure removed successfully!", "success")
             except Exception as e:
                 self.log.addLog(e)
     

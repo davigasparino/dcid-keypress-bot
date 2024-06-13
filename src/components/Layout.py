@@ -139,10 +139,15 @@ class Layout:
         theTitle = ctk.CTkLabel(self.centerTP, text=title, font=("Arial", 22), width=self.centerWidth)
         theTitle.pack(padx=0)
 
-    def Message(self, text):
-        ctk.CTkLabel(self.msg, text=text, font=("Arial", 12, "bold")).pack(pady=0, padx=0)
+    def Message(self, text, color = "success"):
+        if color == 'success':
+            color = "#00cc00"
+        else:
+            color = "cc0000"
+
+        ctk.CTkLabel(self.msg, text=text, font=("Arial", 12, "bold"), text_color=color).pack(pady=0, padx=0)
         threading.Thread(
-            target=lambda: self.clearFrame(self.msg, 10)
+            target=lambda: self.clearFrame(self.msg, 5)
         ).start()
 
     def clearAllFrames(self):
