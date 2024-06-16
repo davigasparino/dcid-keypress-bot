@@ -11,36 +11,63 @@ class Robot:
     robotObj = []
     robotLoop = False
 
-    def __init__(sel):
-        return       
+    def __init__(self, obj = []):
+        self.ly= obj.ly  
+        self.SleepContainer = None
+        self.text = None
             
     def Robot(self):
         self.robotLoop = True
         self.RobotStart()
-    
+
+    def printStatus(self, textContent):
+
+        if self.SleepContainer is None:
+            self.SleepContainer = ctk.CTkFrame(
+                self.ly.rightMD,
+                width=self.ly.rightWidth,
+                height=100,
+                fg_color="transparent",
+            )
+            self.SleepContainer.pack(
+                fill="x", pady=20
+            )
+
+            self.text = ctk.CTkLabel(
+                self.SleepContainer,
+                width=self.ly.rightWidth,
+                wraplength=self.ly.rightWidth,
+                text=str(textContent)
+            )
+            self.text.pack()
+        else:
+            self.text.configure(text=str(textContent)) 
+       
     def RobotStart(self):
+        
         self.AutomateActions()
 
         while self.robotLoop == True:
             if self.robotCount > sys.getrecursionlimit() - 100:
                 self.StopTheRobot()
 
-            print(f'em execução {self.robotCount}')
+            self.printStatus(f'em execução {self.robotCount}')
             self.robotCount += 1
             self.RobotStart()
     
     def StopTheRobot(self):
         self.robotCount = 0
         self.robotLoop = False
-        print("Loop interrompido!")
+        self.printStatus("Loop ended!")
         
-    def AutomateActions(self):
-        print(' * - * - * - * - * - * - * - * - * - * - * - * ')
-        print(self.robotObj)
+    def AutomateActions(self):       
         interval = 0.1
         if 'data' in self.robotObj and 'keys' in self.robotObj['data']:
 
             for key in self.robotObj['data']['keys']:
+
+                if not self.robotLoop:
+                    break
 
                 timer_default = 10
 
@@ -52,21 +79,19 @@ class Robot:
 
                 if key['random'] and key['min'] and key['max']:
                     timer_default = self.rand(int(key['min']), int(key['max']))
-                    print(f"the key is {key['key']} an the random number is {int(timer_default)}")
+                    self.printStatus(f"the key is {key['key']} an the random number is {int(timer_default)}")
             
-                print(f"inicio em {datetime.now().minute}:{datetime.now().second}")
-                
+                self.printStatus(f"init {datetime.now().minute}:{datetime.now().second}")
+
                 if not key['key']:
                     continue
 
-                print(key['key'])
+                self.printStatus(f"key: {key['key']}")
+
                 if key['key'] == 'click':
-                    print('-----> CLICK')
                     rt1 = ctk.CTk()
                     width = rt1.winfo_screenwidth()
                     height = rt1.winfo_screenheight()
-                    print(f"Largura da tela: {width} pixels")
-                    print(f"Altura da tela: {height} pixels")
 
                     if key['random']:
                         m1 = int(self.rand(0,width - 1))
@@ -74,11 +99,10 @@ class Robot:
                     else:
                         m1 = 50
                         m2 = 50
-                    print(f'em 2 segundos o click random {m1} e {m2} vai acontecer')
+                    self.printStatus(f'tela: {width}x{height} type: Click -> 2 seconds for the random click -> {m1} x {m2} ')
                     pyautogui.click(m1, m2, duration=2)
                 else:
                     if key['onetap']:
-                        print('-----> ONE TAP')
                         time.sleep(2)
                         keyboard.press(key['key'])
                         time.sleep(interval)
@@ -95,9 +119,7 @@ class Robot:
                             time.sleep(interval)
                             keyboard.release(key['key'])
 
-                        print(f"Fim em {datetime.now().minute}:{datetime.now().second}")
-
-        print(' * - * - * - * - * - * - * - * - * - * - * - * ')
+                        self.printStatus(f"The end : {datetime.now().minute}:{datetime.now().second}")
     
     def rand(self, minimo, maximo):
         return random.uniform(minimo, maximo)

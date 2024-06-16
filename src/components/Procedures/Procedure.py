@@ -183,8 +183,14 @@ class Procedure:
             )
             self.btnSave.pack(side=ctk.RIGHT, pady=0, padx=4)
 
+            self.Commands = ctk.CTkFrame(
+                self.ly.rightMD,
+                width=self.ly.rightWidth,
+            )
+            self.Commands.pack( fill="x", pady=0)
+
             self.btnSave = ctk.CTkButton(
-                self.ly.rightMD, 
+                self.Commands, 
                 text=f"{chr(0x23F9)} Stop",
                 width=(self.ly.rightWidth/2)-8,
                 command=lambda: self.robot.StopTheRobot()
@@ -192,7 +198,7 @@ class Procedure:
             self.btnSave.pack(side=ctk.RIGHT, pady=0, padx=4)
             
             self.btnSave = ctk.CTkButton(
-                self.ly.rightMD, 
+                self.Commands, 
                 text=f"{chr(0x23F5)} Play",
                 width=(self.ly.rightWidth/2)-8,
                 command=lambda: threading.Thread(
@@ -200,7 +206,7 @@ class Procedure:
                 ).start(),
             )
             self.btnSave.pack(side=ctk.RIGHT, pady=0, padx=4)
-
+            
         self.btnNew = ctk.CTkButton(
             self.ly.containerFT, 
             text="+ Add new row", 

@@ -7,7 +7,7 @@ class App:
 
     def __init__(self, root):
         self.ly = ly(root)
-        self.rbt = Robot()
+        self.rbt = Robot(self)
         self.menu()
 
     def menu(self):
