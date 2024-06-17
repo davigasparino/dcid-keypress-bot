@@ -6,6 +6,8 @@ from pynput import keyboard as pyk
 class App:
 
     def __init__(self, root):
+        self.widthScreen = root.winfo_screenwidth()
+        self.heightScreen = root.winfo_screenheight()
         self.ly = ly(root)
         self.rbt = Robot(self)
         self.menu()

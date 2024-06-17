@@ -82,12 +82,23 @@ class Layout:
         self.rightMD = ctk.CTkFrame(
             self.root,
             width=self.rightWidth,
-            height=self.tpMD,
+            height=self.tpMD/3,
             fg_color=self.bgSecondary
         )
         self.rightMD.place(
             x=self.padding+self.sidebarWidth+self.padding+self.centerWidth+self.padding, 
             y=self.padding+self.tpH+self.padding
+        )
+
+        self.rightMD2 = ctk.CTkFrame(
+            self.root,
+            width=self.rightWidth,
+            height=(self.tpMD/3)*2-self.padding,
+            fg_color=self.bgSecondary
+        )
+        self.rightMD2.place(
+            x=self.padding+self.sidebarWidth+self.padding+self.centerWidth+self.padding, 
+            y=self.padding+self.tpH+self.padding+(self.tpMD/3)+self.padding
         )
 
         self.containerMD = ctk.CTkScrollableFrame(
