@@ -1,6 +1,5 @@
-configparser,
-keyboard,
-pyautogui,
-messagebox,
-threading,
+configparser
+keyboard
+pyautogui
+messagebox
 pynput
