@@ -377,7 +377,6 @@ class Procedure:
         root.withdraw()  # Esconde a janela principal
         user_confirmation = messagebox.askyesno("Confirmação", "Você tem certeza de que deseja deletar este item?")
         if user_confirmation:
-
             saveJson = dj()
             try:      
                 saveJson.deleteItem(id)

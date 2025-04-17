@@ -1,1 +1,379 @@
 
+input(): lost sys.stdin
+2025-04-17 08:38:09.756807
+ --------------------------------------------- 
+input(): lost sys.stdin
+2025-04-17 08:38:09.756807
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+CTkTextbox.get() missing 1 required positional argument: 'index1'
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe2.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe2.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe3.!ctktextbox.!text"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+unknown color name "cc0000"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+CTkTextbox.get() missing 1 required positional argument: 'index1'
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe2.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe2.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe3.!ctktextbox.!text"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+unknown color name "cc0000"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+CTkTextbox.get() missing 1 required positional argument: 'index1'
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe2.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe2.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe3.!ctktextbox.!text"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+unknown color name "cc0000"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe7.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe7.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+CTkTextbox.get() missing 1 required positional argument: 'index1'
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe9.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe9.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe9.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe9.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe10.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe10.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe10.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe10.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe11.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe11.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe11.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe11.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe12.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe12.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe12.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe12.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+CTkTextbox.get() missing 1 required positional argument: 'index1'
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe2.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe2.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe3.!ctktextbox.!text"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+unknown color name "cc0000"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe4.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe5.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe7.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe7.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+CTkTextbox.get() missing 1 required positional argument: 'index1'
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe9.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe9.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe9.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe9.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe10.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe10.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe10.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe10.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe11.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe11.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe11.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe11.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe12.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe12.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe12.!ctkentry4.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe12.!ctkentry3.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+CTkTextbox.get() missing 1 required positional argument: 'index1'
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+list index out of range
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe2.!ctkentry.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe2.!ctkentry2.!entry"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+invalid command name ".!ctkframe8.!canvas.!ctkscrollableframe.!ctkframe3.!ctktextbox.!text"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
+unknown color name "cc0000"
+2025-04-17 08:56:28.141377
+ --------------------------------------------- 
